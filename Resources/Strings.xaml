@@ -3,6 +3,10 @@
                     xmlns:local="clr-namespace:MrHrumsHomeEdition.Resources"
                     xmlns:clr="clr-namespace:System;assembly=mscorlib">
 
+    <!-- Names of windows -->
+    <clr:String x:Key="MainWindow_NameOfWindow">MrHrums Home Edition</clr:String>
+    
+    
     <!-- TabControl headers -->
     <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
     <clr:String x:Key="Foods_TabControlHeaderString">Корма</clr:String>

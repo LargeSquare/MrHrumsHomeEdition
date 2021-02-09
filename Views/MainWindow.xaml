@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MrHrumsHomeEdition"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{StaticResource MainWindow_NameOfWindow}" Height="450" Width="800">
     <Grid>
-        
+        <TabControl>
+            <TabItem
+                Header="{StaticResource Clients_TabControlHeaderString}">
+                <Frame
+                    Source="Client\Clients_Page.xaml"
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+            
+            <TabItem
+                Header="{StaticResource Foods_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <TabItem
+                Header="{StaticResource Budget_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <TabItem
+                Header="{StaticResource Supplies_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <TabItem
+                Header="{StaticResource Orders_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <TabItem
+                Header="{StaticResource Warehouse_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+
+            <TabItem
+                Header="{StaticResource EventsHistory_TabControlHeaderString}">
+                <Frame
+                    NavigationUIVisibility="Hidden"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

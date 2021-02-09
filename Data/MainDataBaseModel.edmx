@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Budget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="BudgetStateID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="BudgetState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeOfBudgetActionID" Type="int" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfEventID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodNameID" Type="int" Nullable="false" />
+          <Property Name="FoodWeightID" Type="int" Nullable="false" />
+          <Property Name="GranuleID" Type="int" Nullable="false" />
+          <Property Name="PriceID" Type="int" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodWeight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Granule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="TypeOfDeliveryID" Type="int" Nullable="false" />
+          <Property Name="CostOfDelivery" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="DeliveryPaid" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PositionInOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="TypeOfSaleID" Type="int" Nullable="false" />
+          <Property Name="CountOfBags" Type="int" Nullable="false" />
+          <Property Name="CountOfKG" Type="int" Nullable="false" />
+          <Property Name="IndividualPrice" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PositionInSupply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplyID" Type="int" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="CountOfBags" Type="int" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Retail" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Kennel" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Purchase" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ForSelf" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TypeOfBudgetAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfDelivery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodID" Type="int" Nullable="false" />
+          <Property Name="CountOfBags" Type="int" Nullable="false" />
+          <Property Name="CountOfKG" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Budget_BudgetStateID">
+          <End Role="BudgetState" Type="Self.BudgetState" Multiplicity="1" />
+          <End Role="Budget" Type="Self.Budget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BudgetState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Budget">
+              <PropertyRef Name="BudgetStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BudgetState_TypeOfBudgetActionID">
+          <End Role="TypeOfBudgetAction" Type="Self.TypeOfBudgetAction" Multiplicity="1" />
+          <End Role="BudgetState" Type="Self.BudgetState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfBudgetAction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BudgetState">
+              <PropertyRef Name="TypeOfBudgetActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_TypeOfBudgetActionID">
+          <End Role="TypeOfEvent" Type="Self.TypeOfEvent" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfEvent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TypeOfEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodNameID">
+          <End Role="FoodName" Type="Self.FoodName" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodWeightID">
+          <End Role="FoodWeight" Type="Self.FoodWeight" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodWeight">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodWeightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_GranuleID">
+          <End Role="Granule" Type="Self.Granule" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Granule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="GranuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_PriceID">
+          <End Role="Price" Type="Self.Price" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Price">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="PriceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_ClientID">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeOfDeliveryID">
+          <End Role="TypeOfDelivery" Type="Self.TypeOfDelivery" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfDelivery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypeOfDeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_TypeOfSaleID">
+          <End Role="TypeOfSale" Type="Self.TypeOfSale" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfSale">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="TypeOfSaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInSupply_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="PositionInSupply" Type="Self.PositionInSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInSupply">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInSupply_SupplyID">
+          <End Role="Supply" Type="Self.Supply" Multiplicity="1" />
+          <End Role="PositionInSupply" Type="Self.PositionInSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supply">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInSupply">
+              <PropertyRef Name="SupplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Warehouse_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Warehouse">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Budget" EntityType="Self.Budget" store:Type="Tables" />
+          <EntitySet Name="BudgetState" EntityType="Self.BudgetState" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" store:Type="Tables" />
+          <EntitySet Name="FoodName" EntityType="Self.FoodName" store:Type="Tables" />
+          <EntitySet Name="FoodWeight" EntityType="Self.FoodWeight" store:Type="Tables" />
+          <EntitySet Name="Granule" EntityType="Self.Granule" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" store:Type="Tables" />
+          <EntitySet Name="PositionInOrder" EntityType="Self.PositionInOrder" store:Type="Tables" />
+          <EntitySet Name="PositionInSupply" EntityType="Self.PositionInSupply" store:Type="Tables" />
+          <EntitySet Name="Price" EntityType="Self.Price" store:Type="Tables" />
+          <EntitySet Name="Supply" EntityType="Self.Supply" store:Type="Tables" />
+          <EntitySet Name="TypeOfBudgetAction" EntityType="Self.TypeOfBudgetAction" store:Type="Tables" />
+          <EntitySet Name="TypeOfDelivery" EntityType="Self.TypeOfDelivery" store:Type="Tables" />
+          <EntitySet Name="TypeOfEvent" EntityType="Self.TypeOfEvent" store:Type="Tables" />
+          <EntitySet Name="TypeOfSale" EntityType="Self.TypeOfSale" store:Type="Tables" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" store:Type="Tables" />
+          <AssociationSet Name="FK_Budget_BudgetStateID" Association="Self.FK_Budget_BudgetStateID">
+            <End Role="BudgetState" EntitySet="BudgetState" />
+            <End Role="Budget" EntitySet="Budget" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BudgetState_TypeOfBudgetActionID" Association="Self.FK_BudgetState_TypeOfBudgetActionID">
+            <End Role="TypeOfBudgetAction" EntitySet="TypeOfBudgetAction" />
+            <End Role="BudgetState" EntitySet="BudgetState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_TypeOfBudgetActionID" Association="Self.FK_Event_TypeOfBudgetActionID">
+            <End Role="TypeOfEvent" EntitySet="TypeOfEvent" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodNameID" Association="Self.FK_Food_FoodNameID">
+            <End Role="FoodName" EntitySet="FoodName" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodWeightID" Association="Self.FK_Food_FoodWeightID">
+            <End Role="FoodWeight" EntitySet="FoodWeight" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_GranuleID" Association="Self.FK_Food_GranuleID">
+            <End Role="Granule" EntitySet="Granule" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_PriceID" Association="Self.FK_Food_PriceID">
+            <End Role="Price" EntitySet="Price" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_ClientID" Association="Self.FK_Order_ClientID">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeOfDeliveryID" Association="Self.FK_Order_TypeOfDeliveryID">
+            <End Role="TypeOfDelivery" EntitySet="TypeOfDelivery" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_FoodID" Association="Self.FK_PositionInOrder_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_OrderID" Association="Self.FK_PositionInOrder_OrderID">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_TypeOfSaleID" Association="Self.FK_PositionInOrder_TypeOfSaleID">
+            <End Role="TypeOfSale" EntitySet="TypeOfSale" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInSupply_FoodID" Association="Self.FK_PositionInSupply_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="PositionInSupply" EntitySet="PositionInSupply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInSupply_SupplyID" Association="Self.FK_PositionInSupply_SupplyID">
+            <End Role="Supply" EntitySet="Supply" />
+            <End Role="PositionInSupply" EntitySet="PositionInSupply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehouse_FoodID" Association="Self.FK_Warehouse_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Warehouse" EntitySet="Warehouse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Budget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BudgetStateID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BudgetState" Relationship="Self.FK_Budget_BudgetStateID" FromRole="Budget" ToRole="BudgetState" />
+        </EntityType>
+        <EntityType Name="BudgetState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeOfBudgetActionID" Type="Int32" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Budget" Relationship="Self.FK_Budget_BudgetStateID" FromRole="BudgetState" ToRole="Budget" />
+          <NavigationProperty Name="TypeOfBudgetAction" Relationship="Self.FK_BudgetState_TypeOfBudgetActionID" FromRole="BudgetState" ToRole="TypeOfBudgetAction" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_ClientID" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfEventID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TypeOfEvent" Relationship="Self.FK_Event_TypeOfBudgetActionID" FromRole="Event" ToRole="TypeOfEvent" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodNameID" Type="Int32" Nullable="false" />
+          <Property Name="FoodWeightID" Type="Int32" Nullable="false" />
+          <Property Name="GranuleID" Type="Int32" Nullable="false" />
+          <Property Name="PriceID" Type="Int32" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FoodName" Relationship="Self.FK_Food_FoodNameID" FromRole="Food" ToRole="FoodName" />
+          <NavigationProperty Name="FoodWeight" Relationship="Self.FK_Food_FoodWeightID" FromRole="Food" ToRole="FoodWeight" />
+          <NavigationProperty Name="Granule" Relationship="Self.FK_Food_GranuleID" FromRole="Food" ToRole="Granule" />
+          <NavigationProperty Name="Price" Relationship="Self.FK_Food_PriceID" FromRole="Food" ToRole="Price" />
+          <NavigationProperty Name="PositionInOrder" Relationship="Self.FK_PositionInOrder_FoodID" FromRole="Food" ToRole="PositionInOrder" />
+          <NavigationProperty Name="PositionInSupply" Relationship="Self.FK_PositionInSupply_FoodID" FromRole="Food" ToRole="PositionInSupply" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_Warehouse_FoodID" FromRole="Food" ToRole="Warehouse" />
+        </EntityType>
+        <EntityType Name="FoodName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_FoodNameID" FromRole="FoodName" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="FoodWeight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_FoodWeightID" FromRole="FoodWeight" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Granule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_GranuleID" FromRole="Granule" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfDeliveryID" Type="Int32" Nullable="false" />
+          <Property Name="CostOfDelivery" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="DeliveryPaid" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Order_ClientID" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="TypeOfDelivery" Relationship="Self.FK_Order_TypeOfDeliveryID" FromRole="Order" ToRole="TypeOfDelivery" />
+          <NavigationProperty Name="PositionInOrder" Relationship="Self.FK_PositionInOrder_OrderID" FromRole="Order" ToRole="PositionInOrder" />
+        </EntityType>
+        <EntityType Name="PositionInOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfSaleID" Type="Int32" Nullable="false" />
+          <Property Name="CountOfBags" Type="Int32" Nullable="false" />
+          <Property Name="CountOfKG" Type="Int32" Nullable="false" />
+          <Property Name="IndividualPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_PositionInOrder_FoodID" FromRole="PositionInOrder" ToRole="Food" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_PositionInOrder_OrderID" FromRole="PositionInOrder" ToRole="Order" />
+          <NavigationProperty Name="TypeOfSale" Relationship="Self.FK_PositionInOrder_TypeOfSaleID" FromRole="PositionInOrder" ToRole="TypeOfSale" />
+        </EntityType>
+        <EntityType Name="PositionInSupply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplyID" Type="Int32" Nullable="false" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="CountOfBags" Type="Int32" Nullable="false" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_PositionInSupply_FoodID" FromRole="PositionInSupply" ToRole="Food" />
+          <NavigationProperty Name="Supply" Relationship="Self.FK_PositionInSupply_SupplyID" FromRole="PositionInSupply" ToRole="Supply" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Retail" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Kennel" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Purchase" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ForSelf" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Food_PriceID" FromRole="Price" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PositionInSupply" Relationship="Self.FK_PositionInSupply_SupplyID" FromRole="Supply" ToRole="PositionInSupply" />
+        </EntityType>
+        <EntityType Name="TypeOfBudgetAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BudgetState" Relationship="Self.FK_BudgetState_TypeOfBudgetActionID" FromRole="TypeOfBudgetAction" ToRole="BudgetState" />
+        </EntityType>
+        <EntityType Name="TypeOfDelivery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeOfDeliveryID" FromRole="TypeOfDelivery" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="TypeOfEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Event_TypeOfBudgetActionID" FromRole="TypeOfEvent" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="TypeOfSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PositionInOrder" Relationship="Self.FK_PositionInOrder_TypeOfSaleID" FromRole="TypeOfSale" ToRole="PositionInOrder" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodID" Type="Int32" Nullable="false" />
+          <Property Name="CountOfBags" Type="Int32" Nullable="false" />
+          <Property Name="CountOfKG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK_Warehouse_FoodID" FromRole="Warehouse" ToRole="Food" />
+        </EntityType>
+        <Association Name="FK_Budget_BudgetStateID">
+          <End Role="BudgetState" Type="Self.BudgetState" Multiplicity="1" />
+          <End Role="Budget" Type="Self.Budget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BudgetState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Budget">
+              <PropertyRef Name="BudgetStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BudgetState_TypeOfBudgetActionID">
+          <End Role="TypeOfBudgetAction" Type="Self.TypeOfBudgetAction" Multiplicity="1" />
+          <End Role="BudgetState" Type="Self.BudgetState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfBudgetAction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BudgetState">
+              <PropertyRef Name="TypeOfBudgetActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_ClientID">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_TypeOfBudgetActionID">
+          <End Role="TypeOfEvent" Type="Self.TypeOfEvent" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfEvent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TypeOfEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodNameID">
+          <End Role="FoodName" Type="Self.FoodName" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodNameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_FoodWeightID">
+          <End Role="FoodWeight" Type="Self.FoodWeight" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodWeight">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="FoodWeightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_GranuleID">
+          <End Role="Granule" Type="Self.Granule" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Granule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="GranuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Food_PriceID">
+          <End Role="Price" Type="Self.Price" Multiplicity="1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Price">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="PriceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInSupply_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="PositionInSupply" Type="Self.PositionInSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInSupply">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Warehouse_FoodID">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Warehouse">
+              <PropertyRef Name="FoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeOfDeliveryID">
+          <End Role="TypeOfDelivery" Type="Self.TypeOfDelivery" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfDelivery">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypeOfDeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInOrder_TypeOfSaleID">
+          <End Role="TypeOfSale" Type="Self.TypeOfSale" Multiplicity="1" />
+          <End Role="PositionInOrder" Type="Self.PositionInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfSale">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInOrder">
+              <PropertyRef Name="TypeOfSaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionInSupply_SupplyID">
+          <End Role="Supply" Type="Self.Supply" Multiplicity="1" />
+          <End Role="PositionInSupply" Type="Self.PositionInSupply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supply">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PositionInSupply">
+              <PropertyRef Name="SupplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MainDataBaseEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Budget" EntityType="Self.Budget" />
+          <EntitySet Name="BudgetState" EntityType="Self.BudgetState" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Food" EntityType="Self.Food" />
+          <EntitySet Name="FoodName" EntityType="Self.FoodName" />
+          <EntitySet Name="FoodWeight" EntityType="Self.FoodWeight" />
+          <EntitySet Name="Granule" EntityType="Self.Granule" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="PositionInOrder" EntityType="Self.PositionInOrder" />
+          <EntitySet Name="PositionInSupply" EntityType="Self.PositionInSupply" />
+          <EntitySet Name="Price" EntityType="Self.Price" />
+          <EntitySet Name="Supply" EntityType="Self.Supply" />
+          <EntitySet Name="TypeOfBudgetAction" EntityType="Self.TypeOfBudgetAction" />
+          <EntitySet Name="TypeOfDelivery" EntityType="Self.TypeOfDelivery" />
+          <EntitySet Name="TypeOfEvent" EntityType="Self.TypeOfEvent" />
+          <EntitySet Name="TypeOfSale" EntityType="Self.TypeOfSale" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
+          <AssociationSet Name="FK_Budget_BudgetStateID" Association="Self.FK_Budget_BudgetStateID">
+            <End Role="BudgetState" EntitySet="BudgetState" />
+            <End Role="Budget" EntitySet="Budget" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BudgetState_TypeOfBudgetActionID" Association="Self.FK_BudgetState_TypeOfBudgetActionID">
+            <End Role="TypeOfBudgetAction" EntitySet="TypeOfBudgetAction" />
+            <End Role="BudgetState" EntitySet="BudgetState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_ClientID" Association="Self.FK_Order_ClientID">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_TypeOfBudgetActionID" Association="Self.FK_Event_TypeOfBudgetActionID">
+            <End Role="TypeOfEvent" EntitySet="TypeOfEvent" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodNameID" Association="Self.FK_Food_FoodNameID">
+            <End Role="FoodName" EntitySet="FoodName" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_FoodWeightID" Association="Self.FK_Food_FoodWeightID">
+            <End Role="FoodWeight" EntitySet="FoodWeight" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_GranuleID" Association="Self.FK_Food_GranuleID">
+            <End Role="Granule" EntitySet="Granule" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Food_PriceID" Association="Self.FK_Food_PriceID">
+            <End Role="Price" EntitySet="Price" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_FoodID" Association="Self.FK_PositionInOrder_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInSupply_FoodID" Association="Self.FK_PositionInSupply_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="PositionInSupply" EntitySet="PositionInSupply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Warehouse_FoodID" Association="Self.FK_Warehouse_FoodID">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Warehouse" EntitySet="Warehouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeOfDeliveryID" Association="Self.FK_Order_TypeOfDeliveryID">
+            <End Role="TypeOfDelivery" EntitySet="TypeOfDelivery" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_OrderID" Association="Self.FK_PositionInOrder_OrderID">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInOrder_TypeOfSaleID" Association="Self.FK_PositionInOrder_TypeOfSaleID">
+            <End Role="TypeOfSale" EntitySet="TypeOfSale" />
+            <End Role="PositionInOrder" EntitySet="PositionInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionInSupply_SupplyID" Association="Self.FK_PositionInSupply_SupplyID">
+            <End Role="Supply" EntitySet="Supply" />
+            <End Role="PositionInSupply" EntitySet="PositionInSupply" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="MainDataBaseEntity">
+          <EntitySetMapping Name="Budget">
+            <EntityTypeMapping TypeName="Model.Budget">
+              <MappingFragment StoreEntitySet="Budget">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BudgetStateID" ColumnName="BudgetStateID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BudgetState">
+            <EntityTypeMapping TypeName="Model.BudgetState">
+              <MappingFragment StoreEntitySet="BudgetState">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeOfBudgetActionID" ColumnName="TypeOfBudgetActionID" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="Model.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="Model.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeOfEventID" ColumnName="TypeOfEventID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food">
+            <EntityTypeMapping TypeName="Model.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FoodNameID" ColumnName="FoodNameID" />
+                <ScalarProperty Name="FoodWeightID" ColumnName="FoodWeightID" />
+                <ScalarProperty Name="GranuleID" ColumnName="GranuleID" />
+                <ScalarProperty Name="PriceID" ColumnName="PriceID" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodName">
+            <EntityTypeMapping TypeName="Model.FoodName">
+              <MappingFragment StoreEntitySet="FoodName">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodWeight">
+            <EntityTypeMapping TypeName="Model.FoodWeight">
+              <MappingFragment StoreEntitySet="FoodWeight">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Granule">
+            <EntityTypeMapping TypeName="Model.Granule">
+              <MappingFragment StoreEntitySet="Granule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="TypeOfDeliveryID" ColumnName="TypeOfDeliveryID" />
+                <ScalarProperty Name="CostOfDelivery" ColumnName="CostOfDelivery" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="DeliveryPaid" ColumnName="DeliveryPaid" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PositionInOrder">
+            <EntityTypeMapping TypeName="Model.PositionInOrder">
+              <MappingFragment StoreEntitySet="PositionInOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="TypeOfSaleID" ColumnName="TypeOfSaleID" />
+                <ScalarProperty Name="CountOfBags" ColumnName="CountOfBags" />
+                <ScalarProperty Name="CountOfKG" ColumnName="CountOfKG" />
+                <ScalarProperty Name="IndividualPrice" ColumnName="IndividualPrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PositionInSupply">
+            <EntityTypeMapping TypeName="Model.PositionInSupply">
+              <MappingFragment StoreEntitySet="PositionInSupply">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="CountOfBags" ColumnName="CountOfBags" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Price">
+            <EntityTypeMapping TypeName="Model.Price">
+              <MappingFragment StoreEntitySet="Price">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Retail" ColumnName="Retail" />
+                <ScalarProperty Name="Kennel" ColumnName="Kennel" />
+                <ScalarProperty Name="Purchase" ColumnName="Purchase" />
+                <ScalarProperty Name="ForSelf" ColumnName="ForSelf" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supply">
+            <EntityTypeMapping TypeName="Model.Supply">
+              <MappingFragment StoreEntitySet="Supply">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfBudgetAction">
+            <EntityTypeMapping TypeName="Model.TypeOfBudgetAction">
+              <MappingFragment StoreEntitySet="TypeOfBudgetAction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfDelivery">
+            <EntityTypeMapping TypeName="Model.TypeOfDelivery">
+              <MappingFragment StoreEntitySet="TypeOfDelivery">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfEvent">
+            <EntityTypeMapping TypeName="Model.TypeOfEvent">
+              <MappingFragment StoreEntitySet="TypeOfEvent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfSale">
+            <EntityTypeMapping TypeName="Model.TypeOfSale">
+              <MappingFragment StoreEntitySet="TypeOfSale">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouse">
+            <EntityTypeMapping TypeName="Model.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouse">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+                <ScalarProperty Name="CountOfBags" ColumnName="CountOfBags" />
+                <ScalarProperty Name="CountOfKG" ColumnName="CountOfKG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

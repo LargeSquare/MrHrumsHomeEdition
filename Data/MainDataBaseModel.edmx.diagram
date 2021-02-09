@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2dfc727413834e8cbe5f936639b075e2" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="Model.Budget" Width="1.5" PointX="27.125" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BudgetState" Width="1.5" PointX="24.875" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="16.625" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Event" Width="1.5" PointX="25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Food" Width="1.5" PointX="13.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FoodName" Width="1.5" PointX="10.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FoodWeight" Width="1.5" PointX="12.625" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Granule" Width="1.5" PointX="14.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="17.125" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PositionInOrder" Width="1.5" PointX="14.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PositionInSupply" Width="1.5" PointX="11.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Price" Width="1.5" PointX="16.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Supply" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfBudgetAction" Width="1.5" PointX="22.625" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfDelivery" Width="1.5" PointX="19" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfEvent" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfSale" Width="1.5" PointX="14.625" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Warehouse" Width="1.5" PointX="18.375" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Budget_BudgetStateID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BudgetState_TypeOfBudgetActionID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_ClientID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Event_TypeOfBudgetActionID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Food_FoodNameID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Food_FoodWeightID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Food_GranuleID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Food_PriceID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PositionInOrder_FoodID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PositionInSupply_FoodID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Warehouse_FoodID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_TypeOfDeliveryID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PositionInOrder_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PositionInOrder_TypeOfSaleID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PositionInSupply_SupplyID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
