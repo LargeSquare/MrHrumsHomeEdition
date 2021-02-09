@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MrHrumsHomeEdition.Resources"
+                    xmlns:clr="clr-namespace:System;assembly=mscorlib">
+
+    <!-- TabControl headers -->
+    <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
+    <clr:String x:Key="Foods_TabControlHeaderString">Корма</clr:String>
+        <clr:String x:Key="FoodNames_TabControlHeaderString">Названия</clr:String>
+        <clr:String x:Key="FoodWeights_TabControlHeaderString">Веса</clr:String>
+        <clr:String x:Key="Granules_TabControlHeaderString">Гранулы</clr:String>
+        <clr:String x:Key="Price_TabControlHeaderString">Цены</clr:String>
+        <clr:String x:Key="PriceHistory_TabControlHeaderString">История цен</clr:String>
+    <clr:String x:Key="Warehouse_TabControlHeaderString">Склад</clr:String>
+    <clr:String x:Key="Supplies_TabControlHeaderString">Поставки</clr:String>
+    <clr:String x:Key="Orders_TabControlHeaderString">Заказы</clr:String>
+        <clr:String x:Key="TypesOfdelivery_TabControlHeaderString">Типы доставки</clr:String>
+    <clr:String x:Key="Budget_TabControlHeaderString">Бюджет</clr:String>
+        <clr:String x:Key="BudgetHistory_TabControlHeaderString">Операции</clr:String>
+        <clr:String x:Key="BudgetStates_TabControlHeaderString">Статьи бюджета</clr:String>
+    <clr:String x:Key="EventsHistory_TabControlHeaderString">История событий</clr:String>
+        <clr:String x:Key="Events_TabControlHeaderString">События</clr:String>
+        <clr:String x:Key="TypesOfEvent_TabControlHeaderString">Типы событий</clr:String>
+</ResourceDictionary>
