@@ -1,0 +1,33 @@
+﻿<Window x:Class="MrHrumsHomeEdition.Views.Event.ChangeTypeOfEvent_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Event"
+        mc:Ignorable="d"
+        Title="{StaticResource ChangeTypeOfEventWindow_NameOfWindow}" Height="150" Width="450"
+        DataContext="{StaticResource Events_ViewModel_Context}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock
+            Text="Название типа: "/>
+        <TextBox
+            Text="{Binding LocalTypeOfEvent.Type}"
+            Grid.Column="1"/>
+        <Button
+            Content="{StaticResource Apply_ButtonContent}"
+            Command="{Binding ChangeTypeOfEvent}"
+            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

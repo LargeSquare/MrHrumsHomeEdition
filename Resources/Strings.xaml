@@ -6,6 +6,12 @@
     <!-- Names of windows -->
     <clr:String x:Key="MainWindow_NameOfWindow">MrHrums Home Edition</clr:String>
     
+    <clr:String x:Key="AddTypeOfEventWindow_NameOfWindow">Добавление типа события</clr:String>
+    <clr:String x:Key="ChangeTypeOfEventWindow_NameOfWindow">Редактирование типа события</clr:String>
+    
+    <clr:String x:Key="AddClientWindow_NameOfWindow">Создание клиента</clr:String>
+    <clr:String x:Key="ChangeClientWindow_NameOfWindow">Редактирование клиента</clr:String>
+    
     
     <!-- TabControl headers -->
     <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
@@ -25,4 +31,11 @@
     <clr:String x:Key="EventsHistory_TabControlHeaderString">История событий</clr:String>
         <clr:String x:Key="Events_TabControlHeaderString">События</clr:String>
         <clr:String x:Key="TypesOfEvent_TabControlHeaderString">Типы событий</clr:String>
+
+
+    <!-- Buttons content -->
+    <clr:String x:Key="Create_ButtonContent">Создать</clr:String>
+    <clr:String x:Key="Change_ButtonContent">Редактировать</clr:String>
+    <clr:String x:Key="Remove_ButtonContent">Удалить</clr:String>
+    <clr:String x:Key="Apply_ButtonContent">Применить</clr:String>
 </ResourceDictionary>

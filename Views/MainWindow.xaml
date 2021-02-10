@@ -48,6 +48,7 @@
             <TabItem
                 Header="{StaticResource EventsHistory_TabControlHeaderString}">
                 <Frame
+                    Source="Event\Events_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
         </TabControl>

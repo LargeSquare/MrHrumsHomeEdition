@@ -6,10 +6,6 @@ alter table [TypeOfBudgetAction] add
 	[IsSystem] bit default 0 not null;
 go
 
-alter table [TypeOfEvent] add
-	[IsSystem] bit default 0 not null;
-go
-
 alter table [TypeOfDelivery] add
 	[IsSystem] bit default 0 not null;
 go

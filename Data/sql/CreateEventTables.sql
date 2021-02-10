@@ -3,7 +3,8 @@
 create table [TypeOfEvent]
 (
 	Id int primary key identity not null,
-	Type nvarchar(50) unique not null
+	Type nvarchar(50) unique not null,
+	[IsSystem] bit default 0 not null
 );
 go
 

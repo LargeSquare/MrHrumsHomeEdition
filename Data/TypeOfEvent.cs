@@ -22,6 +22,7 @@ namespace MrHrumsHomeEdition.Data
         public int Id { get; set; }
         public string Type { get; set; }
         public bool IsSystem { get; set; }
+        public bool Visible { get; set; }
     
         public virtual ICollection<Event> Event { get; set; }
     }

@@ -24,6 +24,7 @@ namespace MrHrumsHomeEdition.Data
         public string Address { get; set; }
         public string Number { get; set; }
         public string Note { get; set; }
+        public bool Visible { get; set; }
     
         public virtual ICollection<Order> Order { get; set; }
     }

@@ -23,7 +23,8 @@ create table [Client]
 	Name nvarchar(50) not null,
 	Address nvarchar(255) not null,
 	[Number] nvarchar(50) not null,
-	Note nvarchar(255) null
+	Note nvarchar(255) null,
+	[Visible] bit default 1 not null
 );
 go
 

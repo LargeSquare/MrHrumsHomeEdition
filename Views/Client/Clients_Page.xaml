@@ -6,9 +6,66 @@
       xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Client"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Clients_Page">
+      Title="Clients_Page"
+      DataContext="{StaticResource Clients_ViewModel_Context}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Button
+                Content="{StaticResource Create_ButtonContent}"
+                Command="{Binding OpenWindowOfAddClient}"/>
+            <Button
+                Content="{StaticResource Change_ButtonContent}"
+                Command="{Binding OpenWindowOfChangeClient}"/>
+            <Button
+                Content="{StaticResource Remove_ButtonContent}"
+                Command="{Binding RemoveClient}"/>
+        </StackPanel>
+
+
+        <DataGrid
+            ItemsSource="{Binding Clients}"
+            SelectedItem="{Binding SelectedClient}"
+            Grid.Column="1">
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Visible}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Имя"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Name}"/>
+                <DataGridTextColumn
+                    Header="Адрес"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Address}"/>
+                <DataGridTextColumn
+                    Header="Номер"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Number}"/>
+                <DataGridTextColumn
+                    Header="Заметка"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Note}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         
     </Grid>
 </Page>

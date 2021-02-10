@@ -74,11 +74,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Resources\Contexts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MainStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Strings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Client\AddClient_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Client\ChangeClient_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Client\Clients_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\AddTypeOfEvent_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\ChangeTypeOfEvent_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Events_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,8 +187,30 @@
     <Compile Include="Data\Warehouse.cs">
       <DependentUpon>MainDataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Clients_Model.cs" />
+    <Compile Include="Models\Events_Model.cs" />
+    <Compile Include="OtherClasses\DataBaseConnection.cs" />
+    <Compile Include="OtherClasses\DelegateCommand.cs" />
+    <Compile Include="OtherClasses\Models.cs" />
+    <Compile Include="ViewModels\Clients_ViewModel.cs" />
+    <Compile Include="ViewModels\Events_ViewModel.cs" />
+    <Compile Include="Views\Client\AddClient_Window.xaml.cs">
+      <DependentUpon>AddClient_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\ChangeClient_Window.xaml.cs">
+      <DependentUpon>ChangeClient_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Client\Clients_Page.xaml.cs">
       <DependentUpon>Clients_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\AddTypeOfEvent_Window.xaml.cs">
+      <DependentUpon>AddTypeOfEvent_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\ChangeTypeOfEvent_Window.xaml.cs">
+      <DependentUpon>ChangeTypeOfEvent_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Events_Page.xaml.cs">
+      <DependentUpon>Events_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -205,10 +255,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="OtherClasses\" />
     <Folder Include="References\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\MainDataBaseModel.Context.tt">

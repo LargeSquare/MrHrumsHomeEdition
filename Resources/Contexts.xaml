@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MrHrumsHomeEdition.Resources"
+                    xmlns:Models="clr-namespace:MrHrumsHomeEdition.ViewModels">
+
+    <Models:Clients_ViewModel x:Key="Clients_ViewModel_Context"/>
+    <Models:Events_ViewModel x:Key="Events_ViewModel_Context"/>
+</ResourceDictionary>
