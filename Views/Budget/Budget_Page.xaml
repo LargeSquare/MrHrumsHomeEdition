@@ -1,0 +1,125 @@
+﻿<Page x:Class="MrHrumsHomeEdition.Views.Budget.Budget_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Budget"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Budget_Page"
+      DataContext="{StaticResource Budget_ViewModel_Context}">
+
+    <TabControl>
+        <TabItem
+            Header="{StaticResource BudgetHistory_TabControlHeaderString}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfAddBudgetItem}"/>
+                </StackPanel>
+                
+                <DataGrid
+                    ItemsSource="{Binding BudgetItems}"
+                    Grid.Column="1">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Дата"
+                            IsReadOnly="True"
+                            Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}"/>
+
+                        <DataGridTextColumn
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Header="Тип операции"
+                            IsReadOnly="True"
+                            Binding="{Binding BudgetState.TypeOfBudgetAction.Name}"/>
+
+                        <DataGridTextColumn
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Header="Статья"
+                            IsReadOnly="True"
+                            Binding="{Binding BudgetState.Name}"/>
+
+                        <DataGridTextColumn
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Header="Сумма"
+                            IsReadOnly="True"
+                            Binding="{Binding Amount}"/>
+
+                        <DataGridTextColumn
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Header="Заметка"
+                            IsReadOnly="True"
+                            Binding="{Binding Note}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem
+            Header="{StaticResource BudgetStates_TabControlHeaderString}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfAddBudgetState}"/>
+                    <Button
+                        Content="{StaticResource Change_ButtonContent}"
+                        Command="{Binding OpenWindowOfChangeBudgetState}"/>
+                    <Button
+                        Content="{StaticResource Remove_ButtonContent}"
+                        Command="{Binding RemoveBudgetState}"/>
+                </StackPanel>
+
+
+                <DataGrid
+                    ItemsSource="{Binding BudgetStates}"
+                    SelectedItem="{Binding SelectedBudgetState}"
+                    Grid.Column="1">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Visible}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Название"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Name}"/>
+                        <DataGridTextColumn
+                            Header="Тип операции"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding TypeOfBudgetAction.Name}"/>
+                        <DataGridCheckBoxColumn
+                            Header="Системный"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding IsSystem}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Page>

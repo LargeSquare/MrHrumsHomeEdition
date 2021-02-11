@@ -11,8 +11,12 @@
     
     <clr:String x:Key="AddClientWindow_NameOfWindow">Создание клиента</clr:String>
     <clr:String x:Key="ChangeClientWindow_NameOfWindow">Редактирование клиента</clr:String>
-    
-    
+
+    <clr:String x:Key="AddBudgetItemWindow_NameOfWindow">Создание операции в бюджете</clr:String>
+    <clr:String x:Key="AddBudgetStateWindow_NameOfWindow">Создание статьи бюджета</clr:String>
+    <clr:String x:Key="ChangeBudgetStateWindow_NameOfWindow">Редактирование статьи бюджета</clr:String>
+
+
     <!-- TabControl headers -->
     <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
     <clr:String x:Key="Foods_TabControlHeaderString">Корма</clr:String>

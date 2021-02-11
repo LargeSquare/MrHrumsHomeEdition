@@ -86,6 +86,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Budget\AddBudgetItem_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Budget\AddBudgetState_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Budget\Budget_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Budget\ChangeBudgetState_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Client\AddClient_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,13 +203,27 @@
     <Compile Include="Data\Warehouse.cs">
       <DependentUpon>MainDataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Budget_Model.cs" />
     <Compile Include="Models\Clients_Model.cs" />
     <Compile Include="Models\Events_Model.cs" />
     <Compile Include="OtherClasses\DataBaseConnection.cs" />
     <Compile Include="OtherClasses\DelegateCommand.cs" />
     <Compile Include="OtherClasses\Models.cs" />
+    <Compile Include="ViewModels\Budget_ViewModel.cs" />
     <Compile Include="ViewModels\Clients_ViewModel.cs" />
     <Compile Include="ViewModels\Events_ViewModel.cs" />
+    <Compile Include="Views\Budget\AddBudgetItem_Window.xaml.cs">
+      <DependentUpon>AddBudgetItem_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Budget\AddBudgetState_Window.xaml.cs">
+      <DependentUpon>AddBudgetState_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Budget\Budget_Page.xaml.cs">
+      <DependentUpon>Budget_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Budget\ChangeBudgetState_Window.xaml.cs">
+      <DependentUpon>ChangeBudgetState_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Client\AddClient_Window.xaml.cs">
       <DependentUpon>AddClient_Window.xaml</DependentUpon>
     </Compile>

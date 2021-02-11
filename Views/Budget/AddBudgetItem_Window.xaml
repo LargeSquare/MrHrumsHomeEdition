@@ -1,0 +1,49 @@
+﻿<Window x:Class="MrHrumsHomeEdition.Views.Budget.AddBudgetItem_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Budget"
+        mc:Ignorable="d"
+        Title="{StaticResource AddBudgetItemWindow_NameOfWindow}"
+        Height="250" Width="450"
+        DataContext="{StaticResource Budget_ViewModel_Context}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Сумма:"/>
+        <TextBlock Grid.Row="1" Text="Статья:"/>
+        <TextBlock Grid.Row="2" Text="Заметка:"/>
+
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="0"
+            Text="{Binding LocalBudgetItem.Amount}"/>
+        <ComboBox
+            Grid.Column="1"
+            Grid.Row="1"
+            ItemsSource="{Binding BudgetStates}"
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding LocalBudgetItem.BudgetState}"/>
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="2"
+            Text="{Binding LocalBudgetItem.Note}"/>
+
+        <Button
+            Content="{StaticResource Create_ButtonContent}"
+            Command="{Binding AddBudgetItem}"
+            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

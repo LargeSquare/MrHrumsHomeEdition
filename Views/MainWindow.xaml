@@ -24,6 +24,7 @@
             <TabItem
                 Header="{StaticResource Budget_TabControlHeaderString}">
                 <Frame
+                    Source="Budget\Budget_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
 
