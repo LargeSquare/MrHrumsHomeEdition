@@ -25,6 +25,7 @@ namespace MrHrumsHomeEdition.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Bags> Bags { get; set; }
         public DbSet<Budget> Budget { get; set; }
         public DbSet<BudgetState> BudgetState { get; set; }
         public DbSet<Client> Client { get; set; }
@@ -33,6 +34,7 @@ namespace MrHrumsHomeEdition.Data
         public DbSet<FoodName> FoodName { get; set; }
         public DbSet<FoodWeight> FoodWeight { get; set; }
         public DbSet<Granule> Granule { get; set; }
+        public DbSet<KG> KG { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<PositionInOrder> PositionInOrder { get; set; }
         public DbSet<PositionInSupply> PositionInSupply { get; set; }

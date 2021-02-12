@@ -12,15 +12,16 @@ namespace MrHrumsHomeEdition.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Warehouse
+    public partial class KG
     {
-        public int Id { get; set; }
-        public int FoodID { get; set; }
-        public int BagsID { get; set; }
-        public int KgID { get; set; }
+        public KG()
+        {
+            this.Warehouse = new HashSet<Warehouse>();
+        }
     
-        public virtual Bags Bags { get; set; }
-        public virtual Food Food { get; set; }
-        public virtual KG KG { get; set; }
+        public int Id { get; set; }
+        public int Count { get; set; }
+    
+        public virtual ICollection<Warehouse> Warehouse { get; set; }
     }
 }

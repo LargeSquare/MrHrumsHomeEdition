@@ -43,6 +43,7 @@
             <TabItem
                 Header="{StaticResource Warehouse_TabControlHeaderString}">
                 <Frame
+                    Source="Warehouse\Warehouse_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
 

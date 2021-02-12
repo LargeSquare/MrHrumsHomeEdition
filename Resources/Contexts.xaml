@@ -6,4 +6,5 @@
     <ViewModels:Clients_ViewModel x:Key="Clients_ViewModel_Context"/>
     <ViewModels:Events_ViewModel x:Key="Events_ViewModel_Context"/>
     <ViewModels:Budget_ViewModel x:Key="Budget_ViewModel_Context"/>
+    <ViewModels:Warehouse_ViewModel x:Key="Warehouse_ViewModel_Context"/>
 </ResourceDictionary>

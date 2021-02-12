@@ -15,6 +15,9 @@
     <clr:String x:Key="AddBudgetItemWindow_NameOfWindow">Создание операции в бюджете</clr:String>
     <clr:String x:Key="AddBudgetStateWindow_NameOfWindow">Создание статьи бюджета</clr:String>
     <clr:String x:Key="ChangeBudgetStateWindow_NameOfWindow">Редактирование статьи бюджета</clr:String>
+    
+    <clr:String x:Key="PackingWarehouseItemWindow_NameOfWindow">Запаковка мешков</clr:String>
+    <clr:String x:Key="UnpackingWarehouseItemWindow_NameOfWindow">Распаковка мешков</clr:String>
 
 
     <!-- TabControl headers -->
@@ -42,4 +45,7 @@
     <clr:String x:Key="Change_ButtonContent">Редактировать</clr:String>
     <clr:String x:Key="Remove_ButtonContent">Удалить</clr:String>
     <clr:String x:Key="Apply_ButtonContent">Применить</clr:String>
+    
+    <clr:String x:Key="PackingWarehouseItem_ButtonContent">Запаковать мешки</clr:String>
+    <clr:String x:Key="UnpackingWarehouseItem_ButtonContent">Распаковать мешки</clr:String>
 </ResourceDictionary>
