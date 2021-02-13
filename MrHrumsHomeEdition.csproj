@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\PartialClasses.cs" />
     <Compile Include="Views\Warehouse\PackingWarehouseItem_Window.xaml.cs">
       <DependentUpon>PackingWarehouseItem_Window.xaml</DependentUpon>
     </Compile>
