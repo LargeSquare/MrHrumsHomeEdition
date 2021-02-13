@@ -21,6 +21,7 @@ namespace MrHrumsHomeEdition.ViewModels
 
         public DelegateCommand OpenWindowOfAddTypeOfEvent { get; set; }
         public DelegateCommand OpenWindowOfChangeTypeOfEvent { get; set; }
+        public DelegateCommand ClearEvents { get; set; }
         public DelegateCommand AddTypeOfEvent { get; set; }
         public DelegateCommand ChangeTypeOfEvent { get; set; }
         public DelegateCommand RemoveTypeOfEvent { get; set; }
@@ -65,6 +66,21 @@ namespace MrHrumsHomeEdition.ViewModels
 
                 ChangeTypeOfEvent_Window window = new ChangeTypeOfEvent_Window();
                 window.ShowDialog();
+            });
+
+            ClearEvents = new DelegateCommand(obj =>
+            {
+                MessageBoxResult result =
+                MessageBox.Show(
+                    "Вопрос",
+                    "Вы точно хотите очистить историю событий?",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    MrHrumsModels.EventsModel.ClearEvents();
+                }
             });
 
             AddTypeOfEvent = new DelegateCommand(obj =>

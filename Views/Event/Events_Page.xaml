@@ -15,28 +15,42 @@
             <TabItem
                 Header="{StaticResource Events_TabControlHeaderString}">
 
-                <DataGrid
-                    ItemsSource="{Binding Events}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Header="Дата"
-                            IsReadOnly="True"
-                            Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}"/>
+                    <StackPanel>
+                        <Button
+                            Content="{StaticResource ClearHistory_ButtonContent}"
+                            Command="{Binding ClearEvents}"/>
+                    </StackPanel>
+                    
+                    <DataGrid
+                        Grid.Column="1"
+                        ItemsSource="{Binding Events}">
 
-                        <DataGridTextColumn
-                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                            Header="Событие"
-                            IsReadOnly="True"
-                            Binding="{Binding TypeOfEvent.Event}"/>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Header="Дата"
+                                IsReadOnly="True"
+                                Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}"/>
 
-                        <DataGridTextColumn
-                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                            Header="Сообщение"
-                            IsReadOnly="True"
-                            Binding="{Binding Message}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                            <DataGridTextColumn
+                                ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                                Header="Событие"
+                                IsReadOnly="True"
+                                Binding="{Binding TypeOfEvent.Event}"/>
+
+                            <DataGridTextColumn
+                                ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                                Header="Сообщение"
+                                IsReadOnly="True"
+                                Binding="{Binding Message}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
                 
             </TabItem>
 

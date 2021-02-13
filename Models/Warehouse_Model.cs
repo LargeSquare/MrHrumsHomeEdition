@@ -108,9 +108,9 @@ namespace MrHrumsHomeEdition.Models
             WarehouseItems.Remove(WarehouseItem);
             DB.SaveChanges();
         }
-        public bool CanCreateWarehouseItem(Warehouse WarehouseItem)
+        public bool CanCreateWarehouseItem(Food FoodItem)
         {
-            Warehouse CheckableItem = GetWarehouseItemByFood(WarehouseItem.Food);
+            Warehouse CheckableItem = GetWarehouseItemByFood(FoodItem);
 
             bool Result = CheckableItem == null ? true : false;
             return Result;

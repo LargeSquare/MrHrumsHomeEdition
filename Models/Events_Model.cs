@@ -30,6 +30,12 @@ namespace MrHrumsHomeEdition.Models
             DB.SaveChanges();
         }
 
+        public void ClearEvents()
+        {
+            Events.Clear();
+            DB.SaveChanges();
+        }
+
         public void AddTypeOfEvent(TypeOfEvent Type)
         {
             TypesOfEvent.Add(Type);

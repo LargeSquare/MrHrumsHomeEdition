@@ -25,7 +25,10 @@ namespace MrHrumsHomeEdition.Data
         public decimal Purchase { get; set; }
         public decimal ForSelf { get; set; }
         public bool Visible { get; set; }
+        public int FoodID { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual ICollection<Food> Food { get; set; }
+        public virtual Food Food1 { get; set; }
     }
 }

@@ -45,6 +45,8 @@
     <clr:String x:Key="Change_ButtonContent">Редактировать</clr:String>
     <clr:String x:Key="Remove_ButtonContent">Удалить</clr:String>
     <clr:String x:Key="Apply_ButtonContent">Применить</clr:String>
+
+    <clr:String x:Key="ClearHistory_ButtonContent">Очистить историю</clr:String>
     
     <clr:String x:Key="PackingWarehouseItem_ButtonContent">Запаковать мешки</clr:String>
     <clr:String x:Key="UnpackingWarehouseItem_ButtonContent">Распаковать мешки</clr:String>
