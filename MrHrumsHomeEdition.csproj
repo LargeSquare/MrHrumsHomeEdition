@@ -75,6 +75,35 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\PartialClasses.cs" />
+    <Compile Include="Models\Food_Model.cs" />
+    <Compile Include="ViewModels\Food_ViewModel.cs" />
+    <Compile Include="Views\Food\ChangeFood_Window.xaml.cs">
+      <DependentUpon>ChangeFood_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\CreateFood_Window.xaml.cs">
+      <DependentUpon>CreateFood_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\FoodName\ChangeFoodName_Window.xaml.cs">
+      <DependentUpon>ChangeFoodName_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\FoodName\CreateFoodName_Window.xaml.cs">
+      <DependentUpon>CreateFoodName_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\FoodWeight\ChangeFoodWeight_Window.xaml.cs">
+      <DependentUpon>ChangeFoodWeight_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\FoodWeight\CreateFoodWeight_Window.xaml.cs">
+      <DependentUpon>CreateFoodWeight_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\Food_Page.xaml.cs">
+      <DependentUpon>Food_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\Granule\ChangeGranule_Window.xaml.cs">
+      <DependentUpon>ChangeGranule_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Food\Granule\CreateGranule_Window.xaml.cs">
+      <DependentUpon>CreateGranule_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Warehouse\PackingWarehouseItem_Window.xaml.cs">
       <DependentUpon>PackingWarehouseItem_Window.xaml</DependentUpon>
     </Compile>
@@ -133,6 +162,42 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Event\Events_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\ChangeFood_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\CreateFood_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\FoodName\ChangeFoodName_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\FoodName\CreateFoodName_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\FoodWeight\ChangeFoodWeight_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\FoodWeight\CreateFoodWeight_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\Food_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\Granule\ChangeGranule_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Food\Granule\CreateGranule_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

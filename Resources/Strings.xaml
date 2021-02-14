@@ -18,15 +18,24 @@
     
     <clr:String x:Key="PackingWarehouseItemWindow_NameOfWindow">Запаковка мешков</clr:String>
     <clr:String x:Key="UnpackingWarehouseItemWindow_NameOfWindow">Распаковка мешков</clr:String>
+    
+    <clr:String x:Key="CreateFoodNameWindow_NameOfWindow">Новое название корма</clr:String>
+    <clr:String x:Key="ChangeFoodNameWindow_NameOfWindow">Редактирование названия корма</clr:String>
+    <clr:String x:Key="CreateFoodWeightWindow_NameOfWindow">Новый вес корма</clr:String>
+    <clr:String x:Key="ChangeFoodWeightWindow_NameOfWindow">Редактирование веса корма</clr:String>
+    <clr:String x:Key="CreateGranuleWindow_NameOfWindow">Новая гранула корма</clr:String>
+    <clr:String x:Key="ChangeGranuleWindow_NameOfWindow">Редактирование гранулы корма</clr:String>
+    <clr:String x:Key="CreateFoodWindow_NameOfWindow">Новый корм</clr:String>
+    <clr:String x:Key="ChangeFoodWindow_NameOfWindow">Редактирование корма</clr:String>
 
 
     <!-- TabControl headers -->
     <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
     <clr:String x:Key="Foods_TabControlHeaderString">Корма</clr:String>
+        <clr:String x:Key="Price_TabControlHeaderString">Цены</clr:String>
         <clr:String x:Key="FoodNames_TabControlHeaderString">Названия</clr:String>
         <clr:String x:Key="FoodWeights_TabControlHeaderString">Веса</clr:String>
         <clr:String x:Key="Granules_TabControlHeaderString">Гранулы</clr:String>
-        <clr:String x:Key="Price_TabControlHeaderString">Цены</clr:String>
         <clr:String x:Key="PriceHistory_TabControlHeaderString">История цен</clr:String>
     <clr:String x:Key="Warehouse_TabControlHeaderString">Склад</clr:String>
     <clr:String x:Key="Supplies_TabControlHeaderString">Поставки</clr:String>

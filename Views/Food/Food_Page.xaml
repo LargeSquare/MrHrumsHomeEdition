@@ -1,0 +1,267 @@
+﻿<Page x:Class="MrHrumsHomeEdition.Views.Food.Food_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Food"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Food_Page"
+      DataContext="{StaticResource Food_ViewModel_Context}">
+
+    <TabControl>
+        <TabItem
+            Header="{StaticResource Price_TabControlHeaderString}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfCreateFood}"/>
+                    <Button
+                        Content="{StaticResource Change_ButtonContent}"
+                        Command="{Binding OpenWindowOfChangeFood}"/>
+                    <Button
+                        Content="{StaticResource Remove_ButtonContent}"
+                        Command="{Binding RemoveFood}"/>
+                </StackPanel>
+
+                <DataGrid
+                    ItemsSource="{Binding Foods}"
+                    SelectedItem="{Binding SelectedFood}"
+                    Grid.Column="1">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Visible}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Название"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding FoodName.Name}"/>
+                        <DataGridTextColumn
+                            Header="Вес"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding FoodWeight.Weight}"/>
+                        <DataGridTextColumn
+                            Header="Гранула"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Granule.Size}"/>
+                        <DataGridTextColumn
+                            Header="Закупочная стоимость"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Price.Purchase}"/>
+                        <DataGridTextColumn
+                            Header="Розничная стоимость"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Price.Retail}"/>
+                        <DataGridTextColumn
+                            Header="Стоимость для питомника"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Price.Kennel}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem
+            Header="{StaticResource FoodNames_TabControlHeaderString}">
+ 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfCreateFoodName}"/>
+                    <Button
+                        Content="{StaticResource Change_ButtonContent}"
+                        Command="{Binding OpenWindowOfChangeFoodName}"/>
+                    <Button
+                        Content="{StaticResource Remove_ButtonContent}"
+                        Command="{Binding RemoveFoodName}"/>
+                </StackPanel>
+
+                <DataGrid
+                    ItemsSource="{Binding FoodNames}"
+                    SelectedItem="{Binding SelectedFoodName}"
+                    Grid.Column="1">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Visible}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Название"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem
+            Header="{StaticResource FoodWeights_TabControlHeaderString}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfCreateFoodWeight}"/>
+                    <Button
+                        Content="{StaticResource Change_ButtonContent}"
+                        Command="{Binding OpenWindowOfChangeFoodWeight}"/>
+                    <Button
+                        Content="{StaticResource Remove_ButtonContent}"
+                        Command="{Binding RemoveFoodWeight}"/>
+                </StackPanel>
+
+                <DataGrid
+                    ItemsSource="{Binding FoodWeights}"
+                    SelectedItem="{Binding SelectedFoodWeight}"
+                    Grid.Column="1">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Visible}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Вес"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Weight}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem
+            Header="{StaticResource Granules_TabControlHeaderString}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Button
+                        Content="{StaticResource Create_ButtonContent}"
+                        Command="{Binding OpenWindowOfCreateGranule}"/>
+                    <Button
+                        Content="{StaticResource Change_ButtonContent}"
+                        Command="{Binding OpenWindowOfChangeGranule}"/>
+                    <Button
+                        Content="{StaticResource Remove_ButtonContent}"
+                        Command="{Binding RemoveGranule}"/>
+                </StackPanel>
+
+                <DataGrid
+                    ItemsSource="{Binding Granules}"
+                    SelectedItem="{Binding SelectedGranule}"
+                    Grid.Column="1">
+
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Visible}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Размер"
+                            IsReadOnly="True"
+                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                            Binding="{Binding Size}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+
+        <TabItem
+            Header="{StaticResource PriceHistory_TabControlHeaderString}">
+
+            <DataGrid
+                ItemsSource="{Binding Prices}">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="Название"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Food1.FoodName.Name}"/>
+                    <DataGridTextColumn
+                        Header="Вес"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Food1.FoodWeight.Weight}"/>
+                    <DataGridTextColumn
+                        Header="Гранула"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Food1.Granule.Size}"/>
+                    <DataGridTextColumn
+                        Header="Закупочная стоимость"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Purchase}"/>
+                    <DataGridTextColumn
+                        Header="Розничная стоимость"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Retail}"/>
+                    <DataGridTextColumn
+                        Header="Стоимость для питомника"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Kennel}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+    </TabControl>
+</Page>

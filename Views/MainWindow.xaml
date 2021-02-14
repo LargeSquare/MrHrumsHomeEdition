@@ -18,6 +18,7 @@
             <TabItem
                 Header="{StaticResource Foods_TabControlHeaderString}">
                 <Frame
+                    Source="Food\Food_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
 

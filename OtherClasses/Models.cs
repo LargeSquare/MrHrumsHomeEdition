@@ -11,5 +11,6 @@ namespace MrHrumsHomeEdition.OtherClasses
         public static Clients_Model ClientsModel= new Clients_Model();
         public static Budget_Model BudgetModel= new Budget_Model();
         public static Warehouse_Model WarehouseModel= new Warehouse_Model();
+        public static Food_Model FoodModel= new Food_Model();
     }
 }
