@@ -50,10 +50,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (SelectedTypeOfEvent.IsSystem == true)
                 {
                     MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете изменить системный тип события",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                        "Вы не можете изменить системный тип события", "Ошибка!",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -72,10 +70,8 @@ namespace MrHrumsHomeEdition.ViewModels
             {
                 MessageBoxResult result =
                 MessageBox.Show(
-                    "Вопрос",
-                    "Вы точно хотите очистить историю событий?",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question);
+                    "Вы точно хотите очистить историю событий?", "Вопрос",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -117,10 +113,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (SelectedTypeOfEvent.IsSystem == true)
                 {
                     MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете изменить системный тип события",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                        "Вы не можете изменить системный тип события", "Ошибка!",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 

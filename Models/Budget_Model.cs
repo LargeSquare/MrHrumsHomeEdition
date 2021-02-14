@@ -45,10 +45,8 @@ namespace MrHrumsHomeEdition.Models
             if (OldBudgetStateItem.IsSystem)
             {
                 MessageBox.Show(
-                    "Ошибка",
-                    "Вы не можете изменить системную статью бюджета!",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Вы не можете изменить системную статью бюджета!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -56,10 +54,8 @@ namespace MrHrumsHomeEdition.Models
             if (item == null)
             {
                 MessageBox.Show(
-                    "Ошибка!",
-                    "Невозможно изменить статью! Обратитесь к администратору.",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Невозможно изменить статью! Обратитесь к администратору.", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -72,14 +68,21 @@ namespace MrHrumsHomeEdition.Models
             if (BudgetStateItem.IsSystem)
             {
                 MessageBox.Show(
-                    "Ошибка",
-                    "Вы не можете удалить системную статью бюджета!",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Вы не можете удалить системную статью бюджета!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             BudgetStateItem.Visible = false;
             DB.SaveChanges();
+        }
+
+        public bool CanCreateBudgetState(BudgetState BudgetStateItem)
+        {
+            BudgetState CheckableItem = BudgetStates.FirstOrDefault(b =>
+                                               b.Name == BudgetStateItem.Name &&
+                                               b.Visible == true);
+            bool Result = CheckableItem == null ? true : false;
+            return Result;
         }
     }
 }

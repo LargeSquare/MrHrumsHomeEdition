@@ -159,10 +159,8 @@ namespace MrHrumsHomeEdition.Models
             else
             {
                 MessageBox.Show(
-                    "Ошибка",
-                    "Невозможно создать корм!",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Невозможно создать корм!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }

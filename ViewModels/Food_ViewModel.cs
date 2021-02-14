@@ -99,8 +99,9 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 if (!AppModels.FoodModel.CanCreateFoodName(LocalFoodName))
                 {
-                    MessageBox.Show("Ошибка", "Такое название уже существует!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Такое название уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -121,10 +122,16 @@ namespace MrHrumsHomeEdition.ViewModels
 
             RemoveFoodName = new DelegateCommand(obj =>
             {
+                if (SelectedFoodName == null)
+                {
+                    MessageBox.Show("Выберите название!");
+                    return;
+                }
                 if (!AppModels.FoodModel.CanRemoveFoodName(SelectedFoodName))
                 {
-                    MessageBox.Show("Ошибка", "Корма с таким названием используются в прайсе!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Корма с таким названием используются в прайсе!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -166,8 +173,9 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 if (!AppModels.FoodModel.CanCreateFoodWeight(LocalFoodWeight))
                 {
-                    MessageBox.Show("Ошибка", "Такой вес уже существует!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Такой вес уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -188,10 +196,16 @@ namespace MrHrumsHomeEdition.ViewModels
 
             RemoveFoodWeight = new DelegateCommand(obj =>
             {
+                if (SelectedFoodWeight == null)
+                {
+                    MessageBox.Show("Выберите вес!");
+                    return;
+                }
                 if (!AppModels.FoodModel.CanRemoveFoodWeight(SelectedFoodWeight))
                 {
-                    MessageBox.Show("Ошибка", "Корма с таким весом используются в прайсе!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Корма с таким весом используются в прайсе!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -233,8 +247,9 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 if (!AppModels.FoodModel.CanCreateGranule(LocalGranule))
                 {
-                    MessageBox.Show("Ошибка", "Такая гранула уже существует!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Такая гранула уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -255,10 +270,16 @@ namespace MrHrumsHomeEdition.ViewModels
 
             RemoveGranule = new DelegateCommand(obj =>
             {
+                if (SelectedGranule == null)
+                {
+                    MessageBox.Show("Выберите гранулу!");
+                    return;
+                }
                 if (!AppModels.FoodModel.CanRemoveGranule(SelectedGranule))
                 {
-                    MessageBox.Show("Ошибка", "Корма с такой гранулой используются в прайсе!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Корма с такой гранулой используются в прайсе!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -319,17 +340,17 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Выберите гранулу!");
                     return;
                 }
-                if (LocalFood.Price.Purchase <= 0)
+                if (LocalFood.Price.Purchase < 0)
                 {
                     MessageBox.Show("Некорректная цена закупки!");
                     return;
                 }
-                if (LocalFood.Price.Retail <= 0)
+                if (LocalFood.Price.Retail < 0)
                 {
                     MessageBox.Show("Некорректная розничная цена!");
                     return;
                 }
-                if (LocalFood.Price.Kennel <= 0)
+                if (LocalFood.Price.Kennel < 0)
                 {
                     MessageBox.Show("Некорректная цена для питомника!");
                     return;
@@ -339,15 +360,17 @@ namespace MrHrumsHomeEdition.ViewModels
 
                 if (!AppModels.FoodModel.CanCreateFood(LocalFood))
                 {
-                    MessageBox.Show("Ошибка", "Такой корм уже существует!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Такой корм уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 if (!AppModels.WarehouseModel.CanCreateWarehouseItem(LocalFood))
                 {
-                    MessageBox.Show("Ошибка", "Такой корм на складе уже существует! " +
-                        "Это критическая ошибка. Обратитесь к администратору",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "Такой корм на складе уже существует! " +
+                        "Это критическая ошибка. Обратитесь к администратору", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -359,17 +382,17 @@ namespace MrHrumsHomeEdition.ViewModels
 
             ChangeFood = new DelegateCommand(obj =>
             {
-                if (LocalFood.Price.Purchase <= 0)
+                if (LocalFood.Price.Purchase < 0)
                 {
                     MessageBox.Show("Некорректная цена закупки!");
                     return;
                 }
-                if (LocalFood.Price.Retail <= 0)
+                if (LocalFood.Price.Retail < 0)
                 {
                     MessageBox.Show("Некорректная розничная цена!");
                     return;
                 }
-                if (LocalFood.Price.Kennel <= 0)
+                if (LocalFood.Price.Kennel < 0)
                 {
                     MessageBox.Show("Некорректная цена для питомника!");
                     return;
@@ -383,10 +406,16 @@ namespace MrHrumsHomeEdition.ViewModels
 
             RemoveFood = new DelegateCommand(obj =>
             {
+                if (SelectedFood == null)
+                {
+                    MessageBox.Show("Выберите корм!");
+                    return;
+                }
                 if (!AppModels.FoodModel.CanRemoveFood(SelectedFood))
                 {
-                    MessageBox.Show("Ошибка", "На складе еще есть мешки удаляемого корма!",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "На складе еще есть мешки удаляемого корма!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 

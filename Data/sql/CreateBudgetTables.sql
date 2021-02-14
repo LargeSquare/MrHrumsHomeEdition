@@ -10,7 +10,7 @@ go
 create table [BudgetState]
 (
 	Id int primary key identity not null,
-	Name nvarchar(50) not null unique,
+	Name nvarchar(50) not null,
 	TypeOfBudgetActionID int not null,
 	Visible bit not null default 1
 );

@@ -33,10 +33,8 @@ namespace MrHrumsHomeEdition.Models
             if (item == null)
             {
                 MessageBox.Show(
-                    "Ошибка!",
-                    "Невозможно редактировать клиента! Обратитесь к администратору.",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Невозможно редактировать клиента! Обратитесь к администратору.", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

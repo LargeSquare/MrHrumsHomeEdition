@@ -63,14 +63,17 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (SelectedBudgetState.IsSystem)
                 {
                     MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете изменить системную статью бюджета !",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Вы не можете изменить системную статью бюджета !", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                LocalBudgetState = SelectedBudgetState;
+                LocalBudgetState = new BudgetState()
+                {
+                    Name = SelectedBudgetState.Name,
+                    TypeOfBudgetAction = SelectedBudgetState.TypeOfBudgetAction,
+                    Visible = SelectedBudgetState.Visible
+                };
 
                 ChangeBudgetState_Window window = new ChangeBudgetState_Window();
                 window.ShowDialog();
@@ -107,8 +110,16 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Выберите тип операции!");
                     return;
                 }
-                MrHrumsModels.BudgetModel.AddBudgetState(LocalBudgetState);
-                (obj as Window).Close();
+
+                if (MrHrumsModels.BudgetModel.CanCreateBudgetState(LocalBudgetState))
+                {
+                    MrHrumsModels.BudgetModel.AddBudgetState(LocalBudgetState);
+                    (obj as Window).Close();
+                }
+                else
+                {
+                    MessageBox.Show("Такая статья уже существует!");
+                }
             });
 
             ChangeBudgetState = new DelegateCommand(obj =>
@@ -137,10 +148,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (SelectedBudgetState.IsSystem)
                 {
                     MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете удалить системную статью бюджета!",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                        "Вы не можете удалить системную статью бюджета!", "Ошибка!",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 MrHrumsModels.BudgetModel.RemoveBudgetState(SelectedBudgetState);

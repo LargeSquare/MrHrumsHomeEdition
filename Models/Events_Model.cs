@@ -47,10 +47,8 @@ namespace MrHrumsHomeEdition.Models
             if (OldType.IsSystem)
             {
                 MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете изменить системный тип события",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Ошибка!", "Вы не можете изменить системный тип события",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -58,10 +56,8 @@ namespace MrHrumsHomeEdition.Models
             if(item == null)
             {
                 MessageBox.Show(
-                    "Ошибка!",
-                    "Невозможно изменить тип события! Обратитесь к администратору.",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Невозможно изменить тип события! Обратитесь к администратору.", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -74,10 +70,8 @@ namespace MrHrumsHomeEdition.Models
             if (Type.IsSystem)
             {
                 MessageBox.Show(
-                    "Ошибка!",
-                    "Вы не можете удалить системный тип события",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                    "Вы не можете удалить системный тип события", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             Type.Visible = false;

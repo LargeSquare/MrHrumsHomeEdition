@@ -85,10 +85,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 else
                 {
                     MessageBox.Show(
-                        "Ошибка",
-                        "Ошибка создания мешка(ов)!",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
+                        "Ошибка создания мешка(ов)!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             });
 
@@ -102,10 +100,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 else
                 {
                     MessageBox.Show(
-                        "Ошибка",
-                        "Ошибка распаковки мешка(ов)!",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
+                        "Ошибка распаковки мешка(ов)!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             });
         }

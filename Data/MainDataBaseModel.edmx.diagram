@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="3" PointY="16.125" />
         <EntityTypeShape EntityType="Model.PositionInOrder" Width="1.5" PointX="5.25" PointY="7.625" />
         <EntityTypeShape EntityType="Model.PositionInSupply" Width="1.5" PointX="8.25" PointY="8.25" />
-        <EntityTypeShape EntityType="Model.Price" Width="1.5" PointX="5.25" PointY="18.375" />
+        <EntityTypeShape EntityType="Model.Price" Width="1.5" PointX="5.25" PointY="15.25" />
         <EntityTypeShape EntityType="Model.Supply" Width="1.5" PointX="6" PointY="12.375" />
         <EntityTypeShape EntityType="Model.TypeOfBudgetAction" Width="1.5" PointX="7.75" PointY="2.375" />
         <EntityTypeShape EntityType="Model.TypeOfDelivery" Width="1.5" PointX="0.75" PointY="18.25" />
