@@ -24,6 +24,7 @@ namespace MrHrumsHomeEdition.Data
         public int TypeOfDeliveryID { get; set; }
         public decimal CostOfDelivery { get; set; }
         public decimal Amount { get; set; }
+        public bool CarriedOut { get; set; }
         public bool Paid { get; set; }
         public bool DeliveryPaid { get; set; }
         public string Note { get; set; }

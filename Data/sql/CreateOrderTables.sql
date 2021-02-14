@@ -5,7 +5,8 @@ create table [TypeOfDelivery]
 (
 	Id int primary key identity not null,
 	Type nvarchar(50) not null,
-	Visible bit default 1 not null
+	Visible bit default 1 not null,
+	IsSystem bit default 0 not null
 );
 go
 
@@ -13,7 +14,8 @@ create table [TypeOfSale]
 (
 	Id int primary key identity not null,
 	Type nvarchar(50) not null,
-	Visible bit default 1 not null
+	Visible bit default 1 not null,
+	IsSystem bit default 0 not null
 );
 go
 
@@ -37,6 +39,7 @@ create table [Order]
 	TypeOfDeliveryID int not null,
 	CostOfDelivery decimal not null default 0,
 	Amount decimal not null,
+	CarriedOut bit default 0 not null,
 	Paid bit default 0 not null,
 	DeliveryPaid bit default 0 not null,
 	Note nvarchar(255) null,
@@ -55,6 +58,7 @@ create table [PositionInOrder]
 	IndividualPrice decimal not null default 0,
 	Discount decimal not null default 0,
 	Amount decimal not null,
+	CarriedOut bit default 0 not null,
 	Paid bit default 0 not null
 );
 go

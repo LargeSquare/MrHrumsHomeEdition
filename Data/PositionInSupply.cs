@@ -18,6 +18,7 @@ namespace MrHrumsHomeEdition.Data
         public int SupplyID { get; set; }
         public int FoodID { get; set; }
         public int CountOfBags { get; set; }
+        public bool CarriedOut { get; set; }
         public bool Paid { get; set; }
     
         public virtual Food Food { get; set; }

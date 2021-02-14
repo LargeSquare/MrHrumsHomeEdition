@@ -72,7 +72,7 @@ namespace MrHrumsHomeEdition.Models
                w.Food.Granule.Size == FoodItem.Granule.Size);
             if (Item == null)
             {
-                MessageBox.Show("Корм (Мешки) на складе не найден!");
+                MessageBox.Show("Корм (КГ) на складе не найден!");
             }
             return Item;
         }

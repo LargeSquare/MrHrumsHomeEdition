@@ -4,6 +4,7 @@ create table [Supply]
 (
 	Id int primary key identity not null,
 	Amount money not null,
+	CarriedOut bit default 0 not null,
 	Paid bit default 0 not null,
 	[Date] datetime default (getdate())
 );
@@ -15,6 +16,7 @@ create table [PositionInSupply]
 	SupplyID int not null,
 	FoodID int not null,
 	CountOfBags int not null,
+	CarriedOut bit default 0 not null,
 	Paid bit default 0 not null
 );
 go

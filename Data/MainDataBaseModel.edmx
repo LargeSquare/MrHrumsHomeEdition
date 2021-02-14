@@ -103,6 +103,7 @@
           <Property Name="TypeOfDeliveryID" Type="int" Nullable="false" />
           <Property Name="CostOfDelivery" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Amount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CarriedOut" Type="bit" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="DeliveryPaid" Type="bit" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="255" />
@@ -121,6 +122,7 @@
           <Property Name="IndividualPrice" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Discount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Amount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CarriedOut" Type="bit" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PositionInSupply">
@@ -131,6 +133,7 @@
           <Property Name="SupplyID" Type="int" Nullable="false" />
           <Property Name="FoodID" Type="int" Nullable="false" />
           <Property Name="CountOfBags" Type="int" Nullable="false" />
+          <Property Name="CarriedOut" Type="bit" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Price">
@@ -152,6 +155,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="CarriedOut" Type="bit" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="Date" Type="datetime" />
         </EntityType>
@@ -723,6 +727,7 @@
           <Property Name="TypeOfDeliveryID" Type="Int32" Nullable="false" />
           <Property Name="CostOfDelivery" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CarriedOut" Type="Boolean" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="DeliveryPaid" Type="Boolean" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -744,6 +749,7 @@
           <Property Name="IndividualPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Discount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CarriedOut" Type="Boolean" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Food" Relationship="Model.FK_PositionInOrder_FoodID" FromRole="PositionInOrder" ToRole="Food" />
           <NavigationProperty Name="Order" Relationship="Model.FK_PositionInOrder_OrderID" FromRole="PositionInOrder" ToRole="Order" />
@@ -757,6 +763,7 @@
           <Property Name="SupplyID" Type="Int32" Nullable="false" />
           <Property Name="FoodID" Type="Int32" Nullable="false" />
           <Property Name="CountOfBags" Type="Int32" Nullable="false" />
+          <Property Name="CarriedOut" Type="Boolean" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Food" Relationship="Model.FK_PositionInSupply_FoodID" FromRole="PositionInSupply" ToRole="Food" />
           <NavigationProperty Name="Supply" Relationship="Model.FK_PositionInSupply_SupplyID" FromRole="PositionInSupply" ToRole="Supply" />
@@ -782,6 +789,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="CarriedOut" Type="Boolean" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PositionInSupply" Relationship="Model.FK_PositionInSupply_SupplyID" FromRole="Supply" ToRole="PositionInSupply" />
@@ -1165,6 +1173,7 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="DeliveryPaid" ColumnName="DeliveryPaid" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="CarriedOut" ColumnName="CarriedOut" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="CostOfDelivery" ColumnName="CostOfDelivery" />
                 <ScalarProperty Name="TypeOfDeliveryID" ColumnName="TypeOfDeliveryID" />
@@ -1177,6 +1186,7 @@
             <EntityTypeMapping TypeName="Model.PositionInOrder">
               <MappingFragment StoreEntitySet="PositionInOrder">
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="CarriedOut" ColumnName="CarriedOut" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="IndividualPrice" ColumnName="IndividualPrice" />
@@ -1193,6 +1203,7 @@
             <EntityTypeMapping TypeName="Model.PositionInSupply">
               <MappingFragment StoreEntitySet="PositionInSupply">
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="CarriedOut" ColumnName="CarriedOut" />
                 <ScalarProperty Name="CountOfBags" ColumnName="CountOfBags" />
                 <ScalarProperty Name="FoodID" ColumnName="FoodID" />
                 <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
@@ -1219,6 +1230,7 @@
               <MappingFragment StoreEntitySet="Supply">
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="CarriedOut" ColumnName="CarriedOut" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

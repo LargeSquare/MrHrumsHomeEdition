@@ -21,6 +21,7 @@ namespace MrHrumsHomeEdition.Data
     
         public int Id { get; set; }
         public decimal Amount { get; set; }
+        public bool CarriedOut { get; set; }
         public bool Paid { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
     

@@ -23,6 +23,7 @@ namespace MrHrumsHomeEdition.Data
         public decimal IndividualPrice { get; set; }
         public decimal Discount { get; set; }
         public decimal Amount { get; set; }
+        public bool CarriedOut { get; set; }
         public bool Paid { get; set; }
     
         public virtual Food Food { get; set; }
