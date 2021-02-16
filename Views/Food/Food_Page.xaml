@@ -227,39 +227,44 @@
             Header="{StaticResource PriceHistory_TabControlHeaderString}">
 
             <DataGrid
-                ItemsSource="{Binding Prices}">
+                ItemsSource="{Binding Foods}">
 
                 <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="Дата изменения"
+                        IsReadOnly="True"
+                        ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                        Binding="{Binding Price.Date, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
                     <DataGridTextColumn
                         Header="Название"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Food1.FoodName.Name}"/>
+                        Binding="{Binding FoodName.Name}"/>
                     <DataGridTextColumn
                         Header="Вес"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Food1.FoodWeight.Weight}"/>
+                        Binding="{Binding FoodWeight.Weight}"/>
                     <DataGridTextColumn
                         Header="Гранула"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Food1.Granule.Size}"/>
+                        Binding="{Binding Granule.Size}"/>
                     <DataGridTextColumn
                         Header="Закупочная стоимость"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Purchase}"/>
+                        Binding="{Binding Price.Purchase}"/>
                     <DataGridTextColumn
                         Header="Розничная стоимость"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Retail}"/>
+                        Binding="{Binding Price.Retail}"/>
                     <DataGridTextColumn
                         Header="Стоимость для питомника"
                         IsReadOnly="True"
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
-                        Binding="{Binding Kennel}"/>
+                        Binding="{Binding Price.Kennel}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </TabItem>

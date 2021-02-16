@@ -22,14 +22,7 @@ namespace MrHrumsHomeEdition.Models
             DB.Bags.Load();
             DB.KG.Load();
 
-            WarehouseItems = new ObservableCollection<Warehouse>(
-                DB.Warehouse.Local
-                            .OrderBy(w => w.Food.FoodName.Name)
-                            .ThenBy(w => w.Food.FoodWeight.Weight)
-                            .ThenBy(w => w.Food.Granule.Size)
-                            .ToList()
-                );
-
+            WarehouseItems = DB.Warehouse.Local;
             WarehouseBagsItems = DB.Bags.Local;
             WarehouseKgItems = DB.KG.Local;
         }

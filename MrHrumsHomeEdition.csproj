@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Data\PartialClasses.cs" />
     <Compile Include="Models\Food_Model.cs" />
+    <Compile Include="Models\Supplies_Model.cs" />
     <Compile Include="ViewModels\Food_ViewModel.cs" />
     <Compile Include="Views\Food\ChangeFood_Window.xaml.cs">
       <DependentUpon>ChangeFood_Window.xaml</DependentUpon>

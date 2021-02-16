@@ -7,8 +7,6 @@ using PropertyChanged;
 
 namespace MrHrumsHomeEdition.Data
 {
-    class PartialClasses
-    {
         [AddINotifyPropertyChangedInterface]
         public partial class Bags { }
 
@@ -87,5 +85,4 @@ namespace MrHrumsHomeEdition.Data
 
         [AddINotifyPropertyChangedInterface]
         public partial class Warehouse { }
-    }
 }

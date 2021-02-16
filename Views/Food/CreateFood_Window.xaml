@@ -40,16 +40,19 @@
         <TextBlock Grid.Row="5" Text="Стоимость для питомников:"/>
 
         <ComboBox Grid.Row="0" Grid.Column="1"
+                  DisplayMemberPath="Name"
                   ItemsSource="{Binding FoodNames}"
                   SelectedItem="{Binding LocalFood.FoodName}">
         </ComboBox>
 
         <ComboBox Grid.Row="1" Grid.Column="1"
+                  DisplayMemberPath="Weight"
                   ItemsSource="{Binding FoodWeights}"
                   SelectedItem="{Binding LocalFood.FoodWeight}">
         </ComboBox>
 
         <ComboBox Grid.Row="2" Grid.Column="1"
+                  DisplayMemberPath="Size"
                   ItemsSource="{Binding Granules}"
                   SelectedItem="{Binding LocalFood.Granule}">
         </ComboBox>

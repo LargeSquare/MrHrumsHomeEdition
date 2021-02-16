@@ -146,7 +146,6 @@
           <Property Name="Purchase" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ForSelf" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Visible" Type="bit" Nullable="false" />
-          <Property Name="FoodID" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Supply">
@@ -371,18 +370,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Price_FoodID">
-          <End Role="Food" Type="Self.Food" Multiplicity="1" />
-          <End Role="Price" Type="Self.Price" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Food">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Price">
-              <PropertyRef Name="FoodID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Warehouse_FoodID">
           <End Role="Food" Type="Self.Food" Multiplicity="1" />
           <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
@@ -496,10 +483,6 @@
             <End Role="Supply" EntitySet="Supply" />
             <End Role="PositionInSupply" EntitySet="PositionInSupply" />
           </AssociationSet>
-          <AssociationSet Name="FK_Price_FoodID" Association="Self.FK_Price_FoodID">
-            <End Role="Food" EntitySet="Food" />
-            <End Role="Price" EntitySet="Price" />
-          </AssociationSet>
           <AssociationSet Name="FK_Warehouse_FoodID" Association="Self.FK_Warehouse_FoodID">
             <End Role="Food" EntitySet="Food" />
             <End Role="Warehouse" EntitySet="Warehouse" />
@@ -581,10 +564,6 @@
           <AssociationSet Name="FK_PositionInSupply_FoodID" Association="Model.FK_PositionInSupply_FoodID">
             <End Role="Food" EntitySet="Food" />
             <End Role="PositionInSupply" EntitySet="PositionInSupply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Price_FoodID" Association="Model.FK_Price_FoodID">
-            <End Role="Food" EntitySet="Food" />
-            <End Role="Price" EntitySet="Price" />
           </AssociationSet>
           <AssociationSet Name="FK_Warehouse_FoodID" Association="Model.FK_Warehouse_FoodID">
             <End Role="Food" EntitySet="Food" />
@@ -680,7 +659,6 @@
           <NavigationProperty Name="Price" Relationship="Model.FK_Food_PriceID" FromRole="Food" ToRole="Price" />
           <NavigationProperty Name="PositionInOrder" Relationship="Model.FK_PositionInOrder_FoodID" FromRole="Food" ToRole="PositionInOrder" />
           <NavigationProperty Name="PositionInSupply" Relationship="Model.FK_PositionInSupply_FoodID" FromRole="Food" ToRole="PositionInSupply" />
-          <NavigationProperty Name="Price1" Relationship="Model.FK_Price_FoodID" FromRole="Food" ToRole="Price" />
           <NavigationProperty Name="Warehouse" Relationship="Model.FK_Warehouse_FoodID" FromRole="Food" ToRole="Warehouse" />
         </EntityType>
         <EntityType Name="FoodName">
@@ -778,10 +756,8 @@
           <Property Name="Purchase" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="ForSelf" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Visible" Type="Boolean" Nullable="false" />
-          <Property Name="FoodID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Food" Relationship="Model.FK_Food_PriceID" FromRole="Price" ToRole="Food" />
-          <NavigationProperty Name="Food1" Relationship="Model.FK_Price_FoodID" FromRole="Price" ToRole="Food" />
         </EntityType>
         <EntityType Name="Supply">
           <Key>
@@ -973,18 +949,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PositionInSupply">
-              <PropertyRef Name="FoodID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Price_FoodID">
-          <End Type="Model.Food" Role="Food" Multiplicity="1" />
-          <End Type="Model.Price" Role="Price" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Food">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Price">
               <PropertyRef Name="FoodID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1215,7 +1179,6 @@
             <EntityTypeMapping TypeName="Model.Price">
               <MappingFragment StoreEntitySet="Price">
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
                 <ScalarProperty Name="Visible" ColumnName="Visible" />
                 <ScalarProperty Name="ForSelf" ColumnName="ForSelf" />
                 <ScalarProperty Name="Purchase" ColumnName="Purchase" />

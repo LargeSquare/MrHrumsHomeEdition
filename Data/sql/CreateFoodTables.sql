@@ -27,7 +27,6 @@ go
 create table [Price]
 (
 	Id int primary key identity not null,
-	FoodID int not null,
 	Retail decimal default 0 not null,
 	Kennel decimal default 0 not null,
 	Purchase decimal default 0 not null,
@@ -63,10 +62,6 @@ go
 	
 alter table [Food] add constraint [FK_Food_PriceID]
 	foreign key (PriceID) references [Price]([Id]);
-go
-	
-alter table [Price] add constraint [FK_Price_FoodID]
-	foreign key (FoodID) references [Food]([Id]);
 go
 	
 	

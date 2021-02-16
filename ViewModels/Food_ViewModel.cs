@@ -83,7 +83,7 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 LocalFoodName = new FoodName()
                 {
-                    Name = LocalFoodName.Name,
+                    Name = SelectedFoodName.Name,
                     Visible = true
                 };
                 ChangeFoodName_Window window = new ChangeFoodName_Window();
@@ -157,7 +157,7 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 LocalFoodWeight = new FoodWeight()
                 {
-                    Weight = LocalFoodWeight.Weight,
+                    Weight = SelectedFoodWeight.Weight,
                     Visible = true
                 };
                 ChangeFoodWeight_Window window = new ChangeFoodWeight_Window();
@@ -234,7 +234,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     Size = SelectedGranule.Size,
                     Visible = true
                 };
-                CreateGranule_Window window = new CreateGranule_Window();
+                ChangeGranule_Window window = new ChangeGranule_Window();
                 window.ShowDialog();
             });
 
@@ -294,7 +294,6 @@ namespace MrHrumsHomeEdition.ViewModels
                 LocalFood = new Food() { Visible = true };
                 LocalPrice = new Price() { Visible = true };
                 LocalFood.Price = LocalPrice;
-                LocalPrice.Food1 = LocalFood;
 
                 CreateFood_Window window = new CreateFood_Window();
                 window.ShowDialog();
@@ -308,7 +307,13 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                LocalPrice = new Price() { Visible = true };
+                LocalPrice = new Price() 
+                {
+                    Purchase = SelectedFood.Price.Purchase,
+                    Kennel = SelectedFood.Price.Kennel,
+                    Retail = SelectedFood.Price.Retail
+                };
+
                 LocalFood = new Food()
                 {
                     FoodName = SelectedFood.FoodName,
@@ -317,7 +322,6 @@ namespace MrHrumsHomeEdition.ViewModels
                     Price = LocalPrice,
                     Visible = true                
                 };
-                LocalPrice.Food1 = LocalFood;
                 ChangeFood_Window window = new ChangeFood_Window();
                 window.ShowDialog();
             });
@@ -367,6 +371,7 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 if (!AppModels.WarehouseModel.CanCreateWarehouseItem(LocalFood))
                 {
+                    // todo: transit this method to FoodModel
                     MessageBox.Show(
                         "Такой корм на складе уже существует! " +
                         "Это критическая ошибка. Обратитесь к администратору", "Ошибка",
@@ -374,9 +379,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                AppModels.FoodModel.CreatePrice(LocalPrice);
                 AppModels.FoodModel.CreateFood(LocalFood);
-                AppModels.WarehouseModel.CreateWarehouseItemFromFood(LocalFood);
                 (obj as Window).Close();
             });
 
@@ -399,7 +402,6 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
 
 
-                AppModels.FoodModel.CreatePrice(LocalPrice);
                 AppModels.FoodModel.ChangeFood(SelectedFood, LocalFood);
                 (obj as Window).Close();
             });

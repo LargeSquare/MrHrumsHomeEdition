@@ -18,7 +18,6 @@ namespace MrHrumsHomeEdition.Data
         {
             this.PositionInOrder = new HashSet<PositionInOrder>();
             this.PositionInSupply = new HashSet<PositionInSupply>();
-            this.Price1 = new HashSet<Price>();
             this.Warehouse = new HashSet<Warehouse>();
         }
     
@@ -35,7 +34,6 @@ namespace MrHrumsHomeEdition.Data
         public virtual Price Price { get; set; }
         public virtual ICollection<PositionInOrder> PositionInOrder { get; set; }
         public virtual ICollection<PositionInSupply> PositionInSupply { get; set; }
-        public virtual ICollection<Price> Price1 { get; set; }
         public virtual ICollection<Warehouse> Warehouse { get; set; }
     }
 }

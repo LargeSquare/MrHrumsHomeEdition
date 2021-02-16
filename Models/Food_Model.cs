@@ -134,6 +134,7 @@ namespace MrHrumsHomeEdition.Models
 
         public void CreatePrice(Price price)
         {
+            price.Date = DateTime.Now;
             Prices.Add(price);
             DB.SaveChanges();
         }
@@ -150,28 +151,33 @@ namespace MrHrumsHomeEdition.Models
         public void CreateFood(Food food)
         {
             bool CanCreateWarehouse = OtherClasses.Models.WarehouseModel.CanCreateWarehouseItem(food);
+            CreatePrice(food.Price);
+            Foods.Add(food);
+            DB.SaveChanges();
             if (CanCreateWarehouse)
             {
                 OtherClasses.Models.WarehouseModel.CreateWarehouseItemFromFood(food);
-                Foods.Add(food);
-                DB.SaveChanges();
             }
             else
             {
-                MessageBox.Show(
+                /*MessageBox.Show(
                     "Невозможно создать корм!", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                return;*/
             }
         }
         public void ChangeFood(Food OldFood, Food NewFood)
         {
-            OldFood.Price = NewFood.Price;
+            RemoveFood(OldFood);
+            CreatePrice(NewFood.Price);
+            CreateFood(NewFood);
             DB.SaveChanges();
         }
         public void RemoveFood(Food food)
         {
-            Foods.Remove(food);
+            Warehouse RemovableWarehouse = OtherClasses.Models.WarehouseModel.GetWarehouseItemByFood(food);
+            OtherClasses.Models.WarehouseModel.RemoveWarehouseItem(RemovableWarehouse);
+            food.Visible = false;
             DB.SaveChanges();
         }
         public bool CanCreateFood(Food food)

@@ -12,5 +12,6 @@ namespace MrHrumsHomeEdition.OtherClasses
         public static Budget_Model BudgetModel= new Budget_Model();
         public static Warehouse_Model WarehouseModel= new Warehouse_Model();
         public static Food_Model FoodModel= new Food_Model();
+        public static Supplies_Model SuppliesModel= new Supplies_Model();
     }
 }
