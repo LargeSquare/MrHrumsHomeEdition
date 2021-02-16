@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.Models
 {

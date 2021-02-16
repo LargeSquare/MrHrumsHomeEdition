@@ -6,14 +6,14 @@ using MrHrumsHomeEdition.Views.Warehouse;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
-using MrHrumsModels = MrHrumsHomeEdition.OtherClasses.Models;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     class Warehouse_ViewModel
     {
-        public ObservableCollection<Warehouse> WarehouseItems => MrHrumsModels.WarehouseModel.WarehouseItems;
+        public ObservableCollection<Warehouse> WarehouseItems => AppModels.WarehouseModel.WarehouseItems;
 
         public Warehouse SelectedWarehouse { get; set; }
         public int countOfBags;
@@ -77,9 +77,9 @@ namespace MrHrumsHomeEdition.ViewModels
 
             PackingItem = new DelegateCommand(obj =>
             {
-                if (MrHrumsModels.WarehouseModel.CanPackingItem(SelectedWarehouse, CountOfBags))
+                if (AppModels.WarehouseModel.CanPackingItem(SelectedWarehouse, CountOfBags))
                 {
-                    MrHrumsModels.WarehouseModel.PackingItem(SelectedWarehouse, CountOfBags);
+                    AppModels.WarehouseModel.PackingItem(SelectedWarehouse, CountOfBags);
                     (obj as Window).Close();
                 }
                 else
@@ -92,9 +92,9 @@ namespace MrHrumsHomeEdition.ViewModels
 
             UnpackingItem = new DelegateCommand(obj =>
             {
-                if (MrHrumsModels.WarehouseModel.CanUnpackingItem(SelectedWarehouse, CountOfBags))
+                if (AppModels.WarehouseModel.CanUnpackingItem(SelectedWarehouse, CountOfBags))
                 {
-                    MrHrumsModels.WarehouseModel.UnpackingItem(SelectedWarehouse, CountOfBags);
+                    AppModels.WarehouseModel.UnpackingItem(SelectedWarehouse, CountOfBags);
                     (obj as Window).Close();
                 }
                 else

@@ -4,15 +4,15 @@ using MrHrumsHomeEdition.Views.Event;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
-using MrHrumsModels = MrHrumsHomeEdition.OtherClasses.Models;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     class Events_ViewModel
     {
-        public ObservableCollection<Event> Events => MrHrumsModels.EventsModel.Events;
-        public ObservableCollection<TypeOfEvent> TypesOfEvent => MrHrumsModels.EventsModel.TypesOfEvent;
+        public ObservableCollection<Event> Events => AppModels.EventsModel.Events;
+        public ObservableCollection<TypeOfEvent> TypesOfEvent => AppModels.EventsModel.TypesOfEvent;
 
         public TypeOfEvent SelectedTypeOfEvent { get; set; }
 
@@ -75,7 +75,7 @@ namespace MrHrumsHomeEdition.ViewModels
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    MrHrumsModels.EventsModel.ClearEvents();
+                    AppModels.EventsModel.ClearEvents();
                 }
             });
 
@@ -87,7 +87,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                MrHrumsModels.EventsModel.AddTypeOfEvent(LocalTypeOfEvent);
+                AppModels.EventsModel.AddTypeOfEvent(LocalTypeOfEvent);
                 (obj as Window).Close();
             });
 
@@ -99,7 +99,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                MrHrumsModels.EventsModel.ChangeTypeOfEvent(SelectedTypeOfEvent, LocalTypeOfEvent);
+                AppModels.EventsModel.ChangeTypeOfEvent(SelectedTypeOfEvent, LocalTypeOfEvent);
                 (obj as Window).Close();
             });
 
@@ -118,7 +118,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                MrHrumsModels.EventsModel.RemoveTypeOfEvent(SelectedTypeOfEvent);
+                AppModels.EventsModel.RemoveTypeOfEvent(SelectedTypeOfEvent);
             });
 
         }

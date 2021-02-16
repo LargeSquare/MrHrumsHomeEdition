@@ -5,14 +5,14 @@ using MrHrumsHomeEdition.Views.Event;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
-using MrHrumsModels = MrHrumsHomeEdition.OtherClasses.Models;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     class Clients_ViewModel
     {
-        public ObservableCollection<Client> Clients => MrHrumsModels.ClientsModel.Clients;
+        public ObservableCollection<Client> Clients => AppModels.ClientsModel.Clients;
 
         public Client SelectedClient { get; set; }
 
@@ -76,7 +76,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                MrHrumsModels.ClientsModel.AddClient(LocalClient);
+                AppModels.ClientsModel.AddClient(LocalClient);
                 (obj as Window).Close();
             });
 
@@ -100,7 +100,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                MrHrumsModels.ClientsModel.ChangeClient(SelectedClient, LocalClient);
+                AppModels.ClientsModel.ChangeClient(SelectedClient, LocalClient);
                 (obj as Window).Close();
             });
 
@@ -111,7 +111,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Выберите клиента!");
                     return;
                 }
-                MrHrumsModels.ClientsModel.RemoveClient(SelectedClient);
+                AppModels.ClientsModel.RemoveClient(SelectedClient);
             });
         }
     }

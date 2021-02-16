@@ -6,16 +6,16 @@ using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
-using MrHrumsModels = MrHrumsHomeEdition.OtherClasses.Models;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     class Budget_ViewModel
     {
-        public ObservableCollection<Budget> BudgetItems => MrHrumsModels.BudgetModel.BudgetItems;
-        public ObservableCollection<BudgetState> BudgetStates => MrHrumsModels.BudgetModel.BudgetStates;
-        public ObservableCollection<TypeOfBudgetAction> TypesOfBudgetAction => MrHrumsModels.BudgetModel.TypesOfBudgetAction;
+        public ObservableCollection<Budget> BudgetItems => AppModels.BudgetModel.BudgetItems;
+        public ObservableCollection<BudgetState> BudgetStates => AppModels.BudgetModel.BudgetStates;
+        public ObservableCollection<TypeOfBudgetAction> TypesOfBudgetAction => AppModels.BudgetModel.TypesOfBudgetAction;
 
 
         public Budget LocalBudgetItem { get; set; }
@@ -94,7 +94,7 @@ namespace MrHrumsHomeEdition.ViewModels
 
                 LocalBudgetItem.Date = DateTime.Now;
 
-                MrHrumsModels.BudgetModel.AddBudgetItem(LocalBudgetItem);
+                AppModels.BudgetModel.AddBudgetItem(LocalBudgetItem);
                 (obj as Window).Close();
             });
 
@@ -111,9 +111,9 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
-                if (MrHrumsModels.BudgetModel.CanCreateBudgetState(LocalBudgetState))
+                if (AppModels.BudgetModel.CanCreateBudgetState(LocalBudgetState))
                 {
-                    MrHrumsModels.BudgetModel.AddBudgetState(LocalBudgetState);
+                    AppModels.BudgetModel.AddBudgetState(LocalBudgetState);
                     (obj as Window).Close();
                 }
                 else
@@ -134,7 +134,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Выберите тип операции!");
                     return;
                 }
-                MrHrumsModels.BudgetModel.ChangeBudgetState(SelectedBudgetState, LocalBudgetState);
+                AppModels.BudgetModel.ChangeBudgetState(SelectedBudgetState, LocalBudgetState);
                 (obj as Window).Close();
             });
 
@@ -152,7 +152,7 @@ namespace MrHrumsHomeEdition.ViewModels
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                MrHrumsModels.BudgetModel.RemoveBudgetState(SelectedBudgetState);
+                AppModels.BudgetModel.RemoveBudgetState(SelectedBudgetState);
             });
         }
     }

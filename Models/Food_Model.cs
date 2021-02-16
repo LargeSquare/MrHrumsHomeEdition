@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.Models
 {
@@ -150,13 +151,13 @@ namespace MrHrumsHomeEdition.Models
 
         public void CreateFood(Food food)
         {
-            bool CanCreateWarehouse = OtherClasses.Models.WarehouseModel.CanCreateWarehouseItem(food);
+            bool CanCreateWarehouse = AppModels.WarehouseModel.CanCreateWarehouseItem(food);
             CreatePrice(food.Price);
             Foods.Add(food);
             DB.SaveChanges();
             if (CanCreateWarehouse)
             {
-                OtherClasses.Models.WarehouseModel.CreateWarehouseItemFromFood(food);
+                AppModels.WarehouseModel.CreateWarehouseItemFromFood(food);
             }
             else
             {
@@ -175,8 +176,8 @@ namespace MrHrumsHomeEdition.Models
         }
         public void RemoveFood(Food food)
         {
-            Warehouse RemovableWarehouse = OtherClasses.Models.WarehouseModel.GetWarehouseItemByFood(food);
-            OtherClasses.Models.WarehouseModel.RemoveWarehouseItem(RemovableWarehouse);
+            Warehouse RemovableWarehouse = AppModels.WarehouseModel.GetWarehouseItemByFood(food);
+            AppModels.WarehouseModel.RemoveWarehouseItem(RemovableWarehouse);
             food.Visible = false;
             DB.SaveChanges();
         }
@@ -192,8 +193,8 @@ namespace MrHrumsHomeEdition.Models
         }
         public bool CanRemoveFood(Food food)
         {
-            Warehouse CheckableItem = OtherClasses.Models.WarehouseModel.GetWarehouseItemByFood(food);
-            return OtherClasses.Models.WarehouseModel.CanRemoveWarehouseItem(CheckableItem);
+            Warehouse CheckableItem = AppModels.WarehouseModel.GetWarehouseItemByFood(food);
+            return AppModels.WarehouseModel.CanRemoveWarehouseItem(CheckableItem);
         }
     }
 }
