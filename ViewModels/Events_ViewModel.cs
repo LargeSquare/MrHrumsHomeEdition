@@ -87,6 +87,13 @@ namespace MrHrumsHomeEdition.ViewModels
                     return;
                 }
 
+                if (!AppModels.EventsModel.CanCreateTypeOfEvent(LocalTypeOfEvent))
+                {
+                    MessageBox.Show(
+                        "Такой тип события уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 AppModels.EventsModel.AddTypeOfEvent(LocalTypeOfEvent);
                 (obj as Window).Close();
             });
@@ -98,7 +105,13 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Введите название типа!");
                     return;
                 }
-
+                if (!AppModels.EventsModel.CanCreateTypeOfEvent(LocalTypeOfEvent))
+                {
+                    MessageBox.Show(
+                        "Такой тип события уже существует!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 AppModels.EventsModel.ChangeTypeOfEvent(SelectedTypeOfEvent, LocalTypeOfEvent);
                 (obj as Window).Close();
             });

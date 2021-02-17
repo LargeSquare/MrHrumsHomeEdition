@@ -78,5 +78,13 @@ namespace MrHrumsHomeEdition.Models
             Type.Visible = false;
             DB.SaveChanges();
         }
+
+        public bool CanCreateTypeOfEvent(TypeOfEvent Type)
+        {
+            TypeOfEvent CheckableItem = TypesOfEvent.FirstOrDefault(t =>
+                                               t.Type == Type.Type);
+            bool Result = CheckableItem == null ? true : false;
+            return Result;
+        }
     }
 }
