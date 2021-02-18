@@ -1,5 +1,6 @@
 ﻿using MrHrumsHomeEdition.Data;
 using PropertyChanged;
+using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
@@ -40,6 +41,14 @@ namespace MrHrumsHomeEdition.Models
         public void AddTypeOfEvent(TypeOfEvent Type)
         {
             TypesOfEvent.Add(Type);
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = TypesOfEvent.FirstOrDefault(t => t.Id == 1),
+                Date = DateTime.Now,
+                Message = string.Format("Создание нового типа события: {0} ",
+                                        Type.Type)
+            };
+            AddEvent(NewEvent);
             DB.SaveChanges();
         }
 
@@ -63,6 +72,15 @@ namespace MrHrumsHomeEdition.Models
             }
 
             item.Type = NewType.Type;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = TypesOfEvent.FirstOrDefault(t => t.Id == 2),
+                Date = DateTime.Now,
+                Message = string.Format("Редактирование типа события: {0} -> {1} ",
+                                        OldType.Type,
+                                        NewType.Type)
+            };
+            AddEvent(NewEvent);
             DB.SaveChanges();
         }
 
@@ -76,6 +94,14 @@ namespace MrHrumsHomeEdition.Models
                 return;
             }
             Type.Visible = false;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = TypesOfEvent.FirstOrDefault(t => t.Id == 3),
+                Date = DateTime.Now,
+                Message = string.Format("Удаление типа события: {0} ",
+                                        Type.Type)
+            };
+            AddEvent(NewEvent);
             DB.SaveChanges();
         }
 

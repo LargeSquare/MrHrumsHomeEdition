@@ -1,5 +1,6 @@
 ﻿using MrHrumsHomeEdition.Data;
 using PropertyChanged;
+using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
@@ -25,6 +26,14 @@ namespace MrHrumsHomeEdition.Models
         public void AddClient(Client client)
         {
             Clients.Add(client);
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 9),
+                Date = DateTime.Now,
+                Message = string.Format("Создание клиента: {0} ",
+                                        client.Name)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
 
@@ -43,12 +52,32 @@ namespace MrHrumsHomeEdition.Models
             item.Address = NewClient.Address;
             item.Number = NewClient.Number;
             item.Note = NewClient.Note;
+
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 10),
+                Date = DateTime.Now,
+                Message = string.Format("Редактирование клиента: {0} -> {1}, {2} -> {3}, {4} -> {5}",
+                                        OldClient.Name, NewClient.Name,
+                                        OldClient.Address, NewClient.Address,
+                                        OldClient.Number, NewClient.Number)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
+
             DB.SaveChanges();
         }
 
         public void RemoveClient(Client client)
         {
             client.Visible = false;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 11),
+                Date = DateTime.Now,
+                Message = string.Format("Удаление клиента: {0}",
+                                        client.Name)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
     }

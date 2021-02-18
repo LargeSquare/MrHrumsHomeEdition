@@ -95,11 +95,31 @@ namespace MrHrumsHomeEdition.Models
             Item.KG = Kg;
 
             WarehouseItems.Add(Item);
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 24),
+                Date = DateTime.Now,
+                Message = string.Format("Создание корма на складе: {0} {1}кг {2}",
+                                        FoodItem.FoodName.Name,
+                                        FoodItem.FoodWeight.Weight,
+                                        FoodItem.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public void RemoveWarehouseItem(Warehouse WarehouseItem)
         {
             WarehouseItems.Remove(WarehouseItem);
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 25),
+                Date = DateTime.Now,
+                Message = string.Format("Удаление корма со склада: {0} {1}кг {2}",
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.FoodWeight.Weight,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public bool CanCreateWarehouseItem(Food FoodItem)
@@ -125,11 +145,33 @@ namespace MrHrumsHomeEdition.Models
         public void AddBagsToItem(Warehouse WarehouseItem, int Count)
         {
             WarehouseItem.Bags.Count += Count;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 26),
+                Date = DateTime.Now,
+                Message = string.Format("Добавление {0} мешков корма {1} {2}кг {3} на склад",
+                                        Count,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.FoodWeight.Weight,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public void RemoveBagsFromItem(Warehouse WarehouseItem, int Count)
         {
             WarehouseItem.Bags.Count -= Count;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 27),
+                Date = DateTime.Now,
+                Message = string.Format("Удаление {0} мешков корма {1} {2}кг {3} со склада",
+                                        Count,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.FoodWeight.Weight,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public bool CanRemoveBagsFromItem(Warehouse WarehouseItem, int Count)
@@ -145,11 +187,31 @@ namespace MrHrumsHomeEdition.Models
         public void AddKGToItem(Warehouse WarehouseItem, int Count)
         {
             WarehouseItem.KG.Count += Count;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 28),
+                Date = DateTime.Now,
+                Message = string.Format("Добавление {0} кг корма {1} {2} на склад",
+                                        Count,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public void RemoveKGFromItem(Warehouse WarehouseItem, int Count)
         {
             WarehouseItem.KG.Count -= Count;
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 29),
+                Date = DateTime.Now,
+                Message = string.Format("Удаление {0} кг корма {1} {2} со склада",
+                                        Count,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }
         public bool CanRemoveKGFromItem(Warehouse WarehouseItem, int Count)
@@ -175,6 +237,18 @@ namespace MrHrumsHomeEdition.Models
             int CountOfKG = (int)(CountOfBags * WarehouseItem.Food.FoodWeight.Weight);
             RemoveKGFromItem(WarehouseItem, CountOfKG);
             AddBagsToItem(WarehouseItem, CountOfBags);
+
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 30),
+                Date = DateTime.Now,
+                Message = string.Format("Запаковка {0} мешков корма {1} {2}кг {3}",
+                                        CountOfBags,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.FoodWeight.Weight,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
         }
         public void UnpackingItem(Warehouse WarehouseItem, int CountOfBags)
         {
@@ -183,6 +257,18 @@ namespace MrHrumsHomeEdition.Models
             int CountOfKG = (int)(CountOfBags * WarehouseItem.Food.FoodWeight.Weight);
             RemoveBagsFromItem(WarehouseItem, CountOfBags);
             AddKGToItem(WarehouseItem, CountOfKG);
+
+            Event NewEvent = new Event()
+            {
+                TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 30),
+                Date = DateTime.Now,
+                Message = string.Format("Распаковка {0} мешков корма {1} {2}кг {3}",
+                                        CountOfBags,
+                                        WarehouseItem.Food.FoodName.Name,
+                                        WarehouseItem.Food.FoodWeight.Weight,
+                                        WarehouseItem.Food.Granule.Size)
+            };
+            AppModels.EventsModel.AddEvent(NewEvent);
         }
         public bool CanPackingItem(Warehouse WarehouseItem, int CountOfBags)
         {

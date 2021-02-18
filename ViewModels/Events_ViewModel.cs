@@ -126,7 +126,7 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (SelectedTypeOfEvent.IsSystem == true)
                 {
                     MessageBox.Show(
-                        "Вы не можете изменить системный тип события", "Ошибка!",
+                        "Вы не можете удалить системный тип события", "Ошибка!",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
