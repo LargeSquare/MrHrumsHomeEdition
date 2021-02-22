@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -18,18 +19,19 @@ namespace MrHrumsHomeEdition.Models
 
         public Events_Model()
         {
-            DB.Event.Load();
-            DB.TypeOfEvent.Load();
+            DB.Events.Load();
+            DB.TypeOfEvents.Load();
 
-            Events = DB.Event.Local;
-            TypesOfEvent = DB.TypeOfEvent.Local;
+            Events = DB.Events.Local;
+            TypesOfEvent = DB.TypeOfEvents.Local;
         }
 
 
         public void AddEvent(Event e)
         {
-            Events.Add(e);
-            DB.SaveChanges();
+            // todo : uncomment this when events will be in database
+            //Events.Add(e);
+            //DB.SaveChanges();
         }
 
         public void ClearEvents()

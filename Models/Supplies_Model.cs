@@ -1,10 +1,12 @@
 ﻿using MrHrumsHomeEdition.Data;
 using PropertyChanged;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -18,34 +20,51 @@ namespace MrHrumsHomeEdition.Models
 
         public Supplies_Model()
         {
-            DB.PositionInSupply.Load();
-            DB.Supply.Load();
+            DB.PositionInSupplies.Load();
+            DB.Supplies.Load();
 
-            PositionInSupplies = DB.PositionInSupply.Local;
-            Supplies = DB.Supply.Local;
+            PositionInSupplies = DB.PositionInSupplies.Local;
+            Supplies = DB.Supplies.Local;
         }
 
 
-        public void CreateSupply() { }
-        public void ChangeSupply() { }
-        public void ReturnSupply() { }
-        public void ClearSupply() { }
+        public void CreateSupply(Supply supply)
+        {
+            Supplies.Add(supply);
+            DB.SaveChanges();
+        }
+        public void ClearSupply(Supply supply) { }
 
 
 
-        public void CreatePosition() { }
-        public void ChangePosition() { }
-        public void ReturnPosition() { }
+        public void CreatePosition(PositionInSupply position)
+        {
+            PositionInSupplies.Add(position);
+            DB.SaveChanges();
+        }
+        public void ChangePosition()
+        {
+            
+        }
         public void ClearPosition() { }
-        public void CreatePositionsfromList() { }
-        public void ChangePositionsfromList() { }
-        public void ReturnPositionsfromList() { }
-        public void ClearePositionsfromList() { }
+        public void CreatePositionsfromList(List<PositionInSupply> positions)
+        {
+            foreach (PositionInSupply p in positions)
+            {
+                CreatePosition(p);
+            }
+        }
+        public void ClearPositionsfromList() { }
 
 
 
         public void SetCarriedOutForSupply() { }
         public void SetCarriedOutForPosition() { }
+        public void CanSetCarriedOutForSupply() { }
+        public void CanSetCarriedOutForPosition(PositionInSupply position)
+        {
+
+        }
         public void SetPaidForSupply() { }
         public void SetPaidForPosition() { }
     }

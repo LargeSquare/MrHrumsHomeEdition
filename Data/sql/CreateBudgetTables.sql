@@ -3,7 +3,8 @@
 create table [TypeOfBudgetAction]
 (
 	Id int primary key identity not null,
-	Name nvarchar(50) not null unique
+	Name nvarchar(50) not null unique,
+	[IsSystem] bit default 0 not null
 );
 go
 
@@ -12,7 +13,8 @@ create table [BudgetState]
 	Id int primary key identity not null,
 	Name nvarchar(50) not null,
 	TypeOfBudgetActionID int not null,
-	Visible bit not null default 1
+	Visible bit not null default 1,
+	[IsSystem] bit default 0 not null
 );
 go
 

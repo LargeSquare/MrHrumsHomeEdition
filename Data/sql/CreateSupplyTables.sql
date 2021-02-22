@@ -6,7 +6,7 @@ create table [Supply]
 	Amount money not null,
 	CarriedOut bit default 0 not null,
 	Paid bit default 0 not null,
-	[Date] datetime default (getdate())
+	[Date] datetime default (getdate()) not null
 );
 go
 

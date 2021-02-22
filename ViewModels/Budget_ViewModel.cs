@@ -6,6 +6,7 @@ using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels

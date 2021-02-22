@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props" Condition="Exists('packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -41,8 +42,14 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.SqlServerCompact.6.4.4\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
@@ -54,6 +61,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -77,7 +87,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\PartialClasses.cs" />
+    <Compile Include="Data\DataBaseModels\Bag.cs" />
+    <Compile Include="Data\DataBaseModels\Budget.cs" />
+    <Compile Include="Data\DataBaseModels\BudgetState.cs" />
+    <Compile Include="Data\DataBaseModels\Client.cs" />
+    <Compile Include="Data\DataBaseModels\Event.cs" />
+    <Compile Include="Data\DataBaseModels\Food.cs" />
+    <Compile Include="Data\DataBaseModels\FoodName.cs" />
+    <Compile Include="Data\DataBaseModels\FoodWeight.cs" />
+    <Compile Include="Data\DataBaseModels\Granule.cs" />
+    <Compile Include="Data\DataBaseModels\KG.cs" />
+    <Compile Include="Data\DataBaseModels\Order.cs" />
+    <Compile Include="Data\DataBaseModels\PositionInOrder.cs" />
+    <Compile Include="Data\DataBaseModels\PositionInSupply.cs" />
+    <Compile Include="Data\DataBaseModels\Price.cs" />
+    <Compile Include="Data\DataBaseModels\Supply.cs" />
+    <Compile Include="Data\DataBaseModels\TypeOfBudgetAction.cs" />
+    <Compile Include="Data\DataBaseModels\TypeOfDelivery.cs" />
+    <Compile Include="Data\DataBaseModels\TypeOfEvent.cs" />
+    <Compile Include="Data\DataBaseModels\TypeOfSale.cs" />
+    <Compile Include="Data\DataBaseModels\Warehouse.cs" />
+    <Compile Include="Data\MainDataBaseEntity.cs" />
+    <Compile Include="Migrations\202102220931421_InitSignature.cs" />
+    <Compile Include="Migrations\202102220931421_InitSignature.designer.cs">
+      <DependentUpon>202102220931421_InitSignature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Food_Model.cs" />
     <Compile Include="Models\Supplies_Model.cs" />
     <Compile Include="ViewModels\Food_ViewModel.cs" />
@@ -213,81 +248,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Bags.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Budget.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\BudgetState.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Client.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Event.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Food.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\FoodName.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\FoodWeight.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Granule.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\KG.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\MainDataBaseModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainDataBaseModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\MainDataBaseModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\MainDataBaseModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainDataBaseModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Order.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\PositionInOrder.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\PositionInSupply.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Price.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Supply.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\TypeOfBudgetAction.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\TypeOfDelivery.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\TypeOfEvent.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\TypeOfSale.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Warehouse.cs">
-      <DependentUpon>MainDataBaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Budget_Model.cs" />
     <Compile Include="Models\Clients_Model.cs" />
     <Compile Include="Models\Events_Model.cs" />
@@ -360,17 +320,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202102220931421_InitSignature.resx">
+      <DependentUpon>202102220931421_InitSignature.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Data\MainDataBaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MainDataBaseModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Data\MainDataBaseModel.edmx.diagram">
-      <DependentUpon>MainDataBaseModel.edmx</DependentUpon>
-    </None>
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -383,21 +339,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Data\MainDataBaseModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MainDataBaseModel.Context.cs</LastGenOutput>
-      <DependentUpon>MainDataBaseModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Data\MainDataBaseModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MainDataBaseModel.edmx</DependentUpon>
-      <LastGenOutput>MainDataBaseModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Data\MrHrumsHomeEditionDataBase.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="logo.ico" />
     <Resource Include="References\logo.ico" />
   </ItemGroup>
@@ -412,5 +359,15 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.3.0\build\Fody.targets'))" />
     <Error Condition="!Exists('packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\PropertyChanged.Fody.3.3.1\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

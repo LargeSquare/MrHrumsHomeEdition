@@ -11,7 +11,7 @@ go
 create table [FoodWeight]
 (
 	Id int primary key identity not null,
-	Weight float not null,
+	Weight double not null,
 	Visible bit default 1 not null
 );
 go
@@ -32,7 +32,7 @@ create table [Price]
 	Purchase decimal default 0 not null,
 	ForSelf decimal default 0 not null,
 	Visible bit default 1 not null,
-	[Date] DateTime not null
+	[Date] DateTime not null default (getdate())
 );
 go
 

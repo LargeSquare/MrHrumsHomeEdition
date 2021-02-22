@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -18,9 +19,9 @@ namespace MrHrumsHomeEdition.Models
 
         public Clients_Model()
         {
-            DB.Client.Load();
+            DB.Clients.Load();
 
-            Clients = DB.Client.Local;
+            Clients = DB.Clients.Local;
         }
 
         public void AddClient(Client client)

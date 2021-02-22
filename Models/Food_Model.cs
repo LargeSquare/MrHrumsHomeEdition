@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -22,17 +23,17 @@ namespace MrHrumsHomeEdition.Models
 
         public Food_Model()
         {
-            DB.FoodName.Load();
-            DB.FoodWeight.Load();
-            DB.Granule.Load();
-            DB.Price.Load();
-            DB.Food.Load();
+            DB.FoodNames.Load();
+            DB.FoodWeights.Load();
+            DB.Granules.Load();
+            DB.Prices.Load();
+            DB.Foods.Load();
 
-            FoodNames = DB.FoodName.Local;
-            FoodWeights = DB.FoodWeight.Local;
-            Granules = DB.Granule.Local;
-            Prices = DB.Price.Local;
-            Foods = DB.Food.Local;
+            FoodNames = DB.FoodNames.Local;
+            FoodWeights = DB.FoodWeights.Local;
+            Granules = DB.Granules.Local;
+            Prices = DB.Prices.Local;
+            Foods = DB.Foods.Local;
         }
 
         public void CreateFoodName(FoodName Name)
@@ -211,14 +212,6 @@ namespace MrHrumsHomeEdition.Models
             Prices.Add(price);
             DB.SaveChanges();
         }
-
-        // todo: remove this method if CreatePrice will work fine
-        /*public Price CreatePriceAndReturn(Price price)
-        {
-            Prices.Add(price);
-            DB.SaveChanges();
-            return Prices.OrderByDescending(p => p.Id).FirstOrDefault();
-        }*/
 
 
         public void CreateFood(Food food)

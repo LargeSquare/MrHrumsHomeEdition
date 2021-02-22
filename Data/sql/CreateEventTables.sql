@@ -4,7 +4,8 @@ create table [TypeOfEvent]
 (
 	Id int primary key identity not null,
 	Type nvarchar(50) not null,
-	[IsSystem] bit default 0 not null
+	[IsSystem] bit default 0 not null,
+	Visible bit default 1 not null
 );
 go
 

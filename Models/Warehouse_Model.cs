@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -14,18 +15,18 @@ namespace MrHrumsHomeEdition.Models
     class Warehouse_Model
     {
         public ObservableCollection<Warehouse> WarehouseItems { get; set; }
-        public ObservableCollection<Bags> WarehouseBagsItems { get; set; }
+        public ObservableCollection<Bag> WarehouseBagsItems { get; set; }
         public ObservableCollection<KG> WarehouseKgItems { get; set; }
 
         public Warehouse_Model()
         {
-            DB.Warehouse.Load();
+            DB.Warehouses.Load();
             DB.Bags.Load();
-            DB.KG.Load();
+            DB.KGs.Load();
 
-            WarehouseItems = DB.Warehouse.Local;
+            WarehouseItems = DB.Warehouses.Local;
             WarehouseBagsItems = DB.Bags.Local;
-            WarehouseKgItems = DB.KG.Local;
+            WarehouseKgItems = DB.KGs.Local;
         }
 
 
@@ -73,9 +74,8 @@ namespace MrHrumsHomeEdition.Models
 
         public void CreateWarehouseItemFromFood(Food FoodItem)
         {
-            // todo: Do test for this method
             Warehouse Item = new Warehouse();
-            Bags Bag = new Bags();
+            Bag Bag = new Bag();
             KG Kg = new KG();
 
             WarehouseBagsItems.Add(Bag);

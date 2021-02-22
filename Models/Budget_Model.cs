@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
@@ -20,13 +21,13 @@ namespace MrHrumsHomeEdition.Models
 
         public Budget_Model()
         {
-            DB.Budget.Load();
-            DB.BudgetState.Load();
-            DB.TypeOfBudgetAction.Load();
+            DB.Budgets.Load();
+            DB.BudgetStates.Load();
+            DB.TypeOfBudgetActions.Load();
 
-            BudgetItems = DB.Budget.Local;
-            BudgetStates = DB.BudgetState.Local;
-            TypesOfBudgetAction = DB.TypeOfBudgetAction.Local;
+            BudgetItems = DB.Budgets.Local;
+            BudgetStates = DB.BudgetStates.Local;
+            TypesOfBudgetAction = DB.TypeOfBudgetActions.Local;
         }
 
         public void AddBudgetItem(Budget BudgetItem)

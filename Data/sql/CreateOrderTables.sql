@@ -43,7 +43,7 @@ create table [Order]
 	Paid bit default 0 not null,
 	DeliveryPaid bit default 0 not null,
 	Note nvarchar(255) null,
-	[Date] datetime default (getdate())
+	[Date] datetime default (getdate()) not null
 );
 go
 
@@ -59,7 +59,9 @@ create table [PositionInOrder]
 	Discount decimal not null default 0,
 	Amount decimal not null,
 	CarriedOut bit default 0 not null,
-	Paid bit default 0 not null
+	Paid bit default 0 not null,
+	Returned bit default 0 not null,
+	ReturnedKG int default 0 not null
 );
 go
 
