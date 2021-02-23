@@ -1,0 +1,159 @@
+﻿<Page x:Class="MrHrumsHomeEdition.Views.Supply.Supply_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Supply"
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Supply_Page"
+      DataContext="{StaticResource Supplies_ViewModel_Context}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>-->
+
+        <GridSplitter Grid.Column="2" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+
+        <StackPanel>
+            <GroupBox Header="{StaticResource Supplies_String}">
+                <StackPanel>
+                    <Button Content="{StaticResource Create_ButtonContent}"/>
+                    <Button Content="{StaticResource Return_ButtonContent}"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{StaticResource Positions_String}">
+                <StackPanel>
+                    <Button Content="{StaticResource Create_ButtonContent}"/>
+                    <Button Content="{StaticResource Change_ButtonContent}"/>
+                    <Button Content="{StaticResource Cancel_ButtonContent}"/>
+                    <Button Content="{StaticResource Return_ButtonContent}"/>
+                </StackPanel>
+            </GroupBox>
+            
+        </StackPanel>
+
+        
+        
+        <DataGrid Grid.Column="1"
+            ItemsSource="{Binding Supplies}"
+            SelectedItem="{Binding SelectedSupply}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Дата"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Date}"/>
+                <DataGridTextColumn
+                    Header="Сумма"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Amount}"/>
+                
+                <DataGridTemplateColumn Header="Оплачено">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Paid}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type CheckBox}}}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Доставлено">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding CarriedOut}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type CheckBox}}}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        
+        
+        
+        <DataGrid Grid.Column="3"
+            ItemsSource="{Binding PositionInSupplies}"
+            SelectedItem="{Binding SelectedPositionInSupply}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Название"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Food.FoodName.Name}"/>
+                <DataGridTextColumn
+                    Header="Вес"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Food.FoodWeight.Weight}"/>
+                <DataGridTextColumn
+                    Header="Гранула"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Food.Granule.Size}"/>
+                <DataGridTextColumn
+                    Header="Количество"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding CountOfBags}"/>
+                <DataGridTextColumn
+                    Header="Закупочная цена"
+                    IsReadOnly="True"
+                    ElementStyle="{StaticResource DataGridCellTextWrapping}"
+                    Binding="{Binding Food.Price.Purchase}"/>
+
+                <DataGridTemplateColumn Header="Оплачено">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Paid}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type CheckBox}}}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Доставлено">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding CarriedOut}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding}"
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type CheckBox}}}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

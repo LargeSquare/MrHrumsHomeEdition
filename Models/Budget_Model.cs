@@ -97,7 +97,7 @@ namespace MrHrumsHomeEdition.Models
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 7),
                 Date = DateTime.Now,
-                Message = string.Format("Редактирование статьи бюджет: {0} -> {1}",
+                Message = string.Format("Редактирование статьи бюджета: {0} -> {1}",
                                         OldBudgetStateItem.Name,
                                         NewBudgetStateItem.Name)
             };

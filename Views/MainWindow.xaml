@@ -32,6 +32,7 @@
             <TabItem
                 Header="{StaticResource Supplies_TabControlHeaderString}">
                 <Frame
+                    Source="Supply\Supply_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
 
