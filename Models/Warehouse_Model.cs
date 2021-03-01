@@ -109,7 +109,6 @@ namespace MrHrumsHomeEdition.Models
         }
         public void RemoveWarehouseItem(Warehouse WarehouseItem)
         {
-            WarehouseItems.Remove(WarehouseItem);
             Event NewEvent = new Event()
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 25),
@@ -119,6 +118,7 @@ namespace MrHrumsHomeEdition.Models
                                         WarehouseItem.Food.FoodWeight.Weight,
                                         WarehouseItem.Food.Granule.Size)
             };
+            WarehouseItems.Remove(WarehouseItem);
             AppModels.EventsModel.AddEvent(NewEvent);
             DB.SaveChanges();
         }

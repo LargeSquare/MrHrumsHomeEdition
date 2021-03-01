@@ -144,6 +144,15 @@
     <Compile Include="Views\Food\Granule\CreateGranule_Window.xaml.cs">
       <DependentUpon>CreateGranule_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Supply\ChangePositionInSupply_Window.xaml.cs">
+      <DependentUpon>ChangePositionInSupply_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supply\CreatePositionsInSupply_Window.xaml.cs">
+      <DependentUpon>CreatePositionsInSupply_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Supply\CreateSupply_Window.xaml.cs">
+      <DependentUpon>CreateSupply_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Supply\Supply_Page.xaml.cs">
       <DependentUpon>Supply_Page.xaml</DependentUpon>
     </Compile>
@@ -297,6 +306,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Supply\ChangePositionInSupply_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Supply\CreatePositionsInSupply_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Supply\CreateSupply_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Supply\Supply_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

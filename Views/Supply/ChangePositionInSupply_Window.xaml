@@ -1,0 +1,54 @@
+﻿<Window x:Class="MrHrumsHomeEdition.Views.Supply.ChangePositionInSupply_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Supply"
+        mc:Ignorable="d"
+        Title="{StaticResource ChangePositionsInSupplyWindow_NameOfWindow}"
+        DataContext="{StaticResource Supplies_ViewModel_Context}" Height="250" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock FontWeight="Bold"
+                   Grid.ColumnSpan="2">
+            <Run Text="{Binding SelectedPositionInSupply.Food.FoodName.Name}"/>
+            <Run Text="{Binding SelectedPositionInSupply.Food.FoodWeight.Weight}"/>
+            <Run Text="{Binding SelectedPositionInSupply.Food.Granule.Size}"/>
+        </TextBlock>
+
+
+        <TextBlock Grid.Row="1">
+            <Run Text="Количество: "/>
+            <Run Text="{Binding SelectedPositionInSupply.CountOfBags}"/>
+        </TextBlock>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="1"
+            Grid.Column="1">
+            <Button Content="-"
+                    Width="40"
+                    Command="{Binding DecrementSelectedPosition}"/>
+            <Button Content="+"
+                    Width="40"
+                    Command="{Binding IncrementSelectedPosition}"/>
+        </StackPanel>
+
+
+        <Button
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Content="{StaticResource Apply_ButtonContent}"
+            Command="{Binding ChangePosition}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+    </Grid>
+</Window>

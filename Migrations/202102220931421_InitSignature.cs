@@ -123,7 +123,7 @@
                     Paid = c.Boolean(nullable: false, defaultValue: false),
                     DeliveryPaid = c.Boolean(nullable: false, defaultValue: false),
                     Note = c.String(maxLength: 4000),
-                    Date = c.DateTime(nullable: false, defaultValue: DateTime.Now),
+                    Date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
@@ -173,7 +173,7 @@
                     Id = c.Int(nullable: false, identity: true),
                     SupplyID = c.Int(nullable: false),
                     FoodID = c.Int(nullable: false),
-                    CountOfBags = c.Int(nullable: false),
+                    CountOfBags = c.Int(nullable: false, defaultValue: 0),
                     CarriedOut = c.Boolean(nullable: false, defaultValue: false),
                     Paid = c.Boolean(nullable: false, defaultValue: false),
                 })
@@ -191,7 +191,7 @@
                     Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
                     CarriedOut = c.Boolean(nullable: false, defaultValue: false),
                     Paid = c.Boolean(nullable: false, defaultValue: false),
-                    Date = c.DateTime(nullable: false, defaultValue: DateTime.Now),
+                    Date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                 })
                 .PrimaryKey(t => t.Id);
 
@@ -205,7 +205,7 @@
                     Purchase = c.Decimal(nullable: false, precision: 18, scale: 2, defaultValue: 0),
                     ForSelf = c.Decimal(nullable: false, precision: 18, scale: 2, defaultValue: 0),
                     Visible = c.Boolean(nullable: false, defaultValue: true),
-                    Date = c.DateTime(nullable: false, defaultValue: DateTime.Now),
+                    Date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                 })
                 .PrimaryKey(t => t.Id);
 
@@ -225,7 +225,7 @@
                     Id = c.Int(nullable: false, identity: true),
                     Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
                     BudgetStateID = c.Int(nullable: false),
-                    Date = c.DateTime(nullable: false, defaultValue: DateTime.Now),
+                    Date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                     Note = c.String(maxLength: 4000),
                 })
                 .PrimaryKey(t => t.Id)
@@ -263,7 +263,7 @@
                 {
                     Id = c.Int(nullable: false, identity: true),
                     TypeOfEventID = c.Int(nullable: false),
-                    Date = c.DateTime(nullable: false, defaultValue: DateTime.Now),
+                    Date = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                     Message = c.String(maxLength: 4000),
                 })
                 .PrimaryKey(t => t.Id)

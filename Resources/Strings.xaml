@@ -27,6 +27,11 @@
     <clr:String x:Key="ChangeGranuleWindow_NameOfWindow">Редактирование гранулы корма</clr:String>
     <clr:String x:Key="CreateFoodWindow_NameOfWindow">Новый корм</clr:String>
     <clr:String x:Key="ChangeFoodWindow_NameOfWindow">Редактирование корма</clr:String>
+    
+    
+    <clr:String x:Key="CreateSupplyWindow_NameOfWindow">Создание поставки</clr:String>
+    <clr:String x:Key="CreatePositionsInSupplyWindow_NameOfWindow">Добавление позиций в поставку</clr:String>
+    <clr:String x:Key="ChangePositionsInSupplyWindow_NameOfWindow">Редактирование позиции в поставке</clr:String>
 
 
     <!-- TabControl headers -->

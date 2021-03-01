@@ -37,13 +37,13 @@ namespace MrHrumsHomeEdition.Models
             int index = 0;
             switch (BudgetItem.BudgetState.TypeOfBudgetAction.Id)
             {
-                case 0:
-                    index = 4;
-                    EventMessage = "Добавление дохода: {0}р.";
-                    break;
                 case 1:
+                    index = 4;
+                    EventMessage = string.Format("Добавление дохода: {0}р.", BudgetItem.Amount);
+                    break;
+                case 2:
                     index = 5;
-                    EventMessage = "Добавление расхода: {0}р.";
+                    EventMessage = string.Format("Добавление расхода: {0}р.", BudgetItem.Amount);
                     break;
             }
 
@@ -66,7 +66,7 @@ namespace MrHrumsHomeEdition.Models
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 6),
                 Date = DateTime.Now,
-                Message = string.Format("Создание новой статьи бюджет: {0} ",
+                Message = string.Format("Создание новой статьи бюджета: {0} ",
                                         BudgetStateItem.Name)
             };
             AppModels.EventsModel.AddEvent(NewEvent);
@@ -119,7 +119,7 @@ namespace MrHrumsHomeEdition.Models
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 8),
                 Date = DateTime.Now,
-                Message = string.Format("Удаление статьи бюджет: {0} ",
+                Message = string.Format("Удаление статьи бюджета: {0} ",
                                         BudgetStateItem.Name)
             };
             AppModels.EventsModel.AddEvent(NewEvent);

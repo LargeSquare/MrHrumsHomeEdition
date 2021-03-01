@@ -28,6 +28,11 @@
         <Setter Property="Height" Value="40"/>
     </Style>
 
+    <Style TargetType="CheckBox">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
     <Style TargetType="Button">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -49,7 +54,7 @@
         <Setter Property="CanUserDeleteRows" Value="False"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
-        <Setter Property="RowHeight" Value="25"/>
+        <Setter Property="RowHeight" Value="30"/>
         <Setter Property="AlternatingRowBackground" Value="LightGray"/>
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>

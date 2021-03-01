@@ -41,7 +41,7 @@
                                 ElementStyle="{StaticResource DataGridCellTextWrapping}"
                                 Header="Событие"
                                 IsReadOnly="True"
-                                Binding="{Binding TypeOfEvent.Event}"/>
+                                Binding="{Binding TypeOfEvent.Type}"/>
 
                             <DataGridTextColumn
                                 ElementStyle="{StaticResource DataGridCellTextWrapping}"

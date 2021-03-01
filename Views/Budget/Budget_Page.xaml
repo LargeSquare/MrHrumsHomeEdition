@@ -115,7 +115,6 @@
                         <DataGridCheckBoxColumn
                             Header="Системный"
                             IsReadOnly="True"
-                            ElementStyle="{StaticResource DataGridCellTextWrapping}"
                             Binding="{Binding IsSystem}"/>
                     </DataGrid.Columns>
                 </DataGrid>
