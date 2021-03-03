@@ -37,7 +37,7 @@
 
         <Button
             Content="{StaticResource Apply_ButtonContent}"
-            Command="{Binding UnpackingItem}"
+            Command="{Binding PackingItem}"
             CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
             Grid.Row="3"
             Grid.ColumnSpan="2"/>

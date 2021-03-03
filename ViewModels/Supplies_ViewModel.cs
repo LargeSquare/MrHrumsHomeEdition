@@ -245,7 +245,8 @@ namespace MrHrumsHomeEdition.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Ноу");
+                    MessageBox.Show("Нельзя отменить проведение поставки!", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                     (obj as CheckBox).IsChecked = !(obj as CheckBox).IsChecked;
                     return;
                 }

@@ -36,15 +36,7 @@
                     SelectedItem="{Binding SelectedFood}"
                     Grid.Column="1">
 
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Visible}" Value="False">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.RowStyle>
+                    
 
                     <DataGrid.Columns>
                         <DataGridTextColumn
@@ -108,15 +100,7 @@
                     SelectedItem="{Binding SelectedFoodName}"
                     Grid.Column="1">
 
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Visible}" Value="False">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.RowStyle>
+                    
 
                     <DataGrid.Columns>
                         <DataGridTextColumn
@@ -155,16 +139,6 @@
                     SelectedItem="{Binding SelectedFoodWeight}"
                     Grid.Column="1">
 
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Visible}" Value="False">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.RowStyle>
-
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Header="Вес"
@@ -201,16 +175,6 @@
                     ItemsSource="{Binding Granules}"
                     SelectedItem="{Binding SelectedGranule}"
                     Grid.Column="1">
-
-                    <DataGrid.RowStyle>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Visible}" Value="False">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.RowStyle>
 
                     <DataGrid.Columns>
                         <DataGridTextColumn

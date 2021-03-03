@@ -33,16 +33,6 @@
             SelectedItem="{Binding SelectedClient}"
             Grid.Column="1">
 
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Visible}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.RowStyle>
-
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="Имя"

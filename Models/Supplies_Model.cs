@@ -64,12 +64,13 @@ namespace MrHrumsHomeEdition.Models
                     {
                         if (LocalPosition.CarriedOut || LocalPosition.Paid)
                         {
-                            MessageBox.Show(string.Format("Нельзя изменить проведенную или оплаченную позицию ({0} {1}кг {2})!",
+                            MessageBox.Show(string.Format("Нельзя изменить проведенную или оплаченную позицию ({0} {1}кг {2})!" +
+                                                            "Остальные позиции будут обновлены.",
                                                             LocalPosition.Food.FoodName.Name,
                                                             LocalPosition.Food.FoodWeight.Weight,
                                                             LocalPosition.Food.Granule.Size), "Ошибка",
                                             MessageBoxButton.OK, MessageBoxImage.Error);
-                            return;
+                            continue;
                         }
                         LocalPosition.CountOfBags += p.CountOfBags;
                         DB.SaveChanges();

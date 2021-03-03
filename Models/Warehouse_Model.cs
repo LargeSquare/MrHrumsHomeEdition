@@ -54,10 +54,7 @@ namespace MrHrumsHomeEdition.Models
                w.Food.FoodName.Name == FoodItem.FoodName.Name &&
                w.Food.FoodWeight.Weight == FoodItem.FoodWeight.Weight &&
                w.Food.Granule.Size == FoodItem.Granule.Size);
-            if (Item == null)
-            {
-                MessageBox.Show("Корм (Мешки) на складе не найден!");
-            }
+            
             return Item;
         }
 
@@ -65,10 +62,7 @@ namespace MrHrumsHomeEdition.Models
             Warehouse Item = WarehouseItems.FirstOrDefault(w =>
                w.Food.FoodName.Name == FoodItem.FoodName.Name &&
                w.Food.Granule.Size == FoodItem.Granule.Size);
-            if (Item == null)
-            {
-                MessageBox.Show("Корм (КГ) на складе не найден!");
-            }
+            
             return Item;
         }
 

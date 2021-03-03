@@ -17,10 +17,6 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>-->
 
         <GridSplitter Grid.Column="2" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
@@ -50,7 +46,6 @@
         <GroupBox Grid.Column="1"
                   Header="Поставки">
             <DataGrid
-                
                 ItemsSource="{Binding Supplies}"
                 SelectedItem="{Binding SelectedSupply}">
                 <DataGrid.Columns>

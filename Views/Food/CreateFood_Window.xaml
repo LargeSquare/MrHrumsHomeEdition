@@ -8,15 +8,6 @@
         Title="{StaticResource CreateFoodWindow_NameOfWindow}"
         Height="450" Width="500"
         DataContext="{StaticResource Food_ViewModel_Context}">
-    <Window.Resources>
-        <Style TargetType="ComboBoxItem">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Visible}" Value="False">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170"/>

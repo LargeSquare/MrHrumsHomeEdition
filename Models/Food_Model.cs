@@ -121,7 +121,7 @@ namespace MrHrumsHomeEdition.Models
         }
         public void RemoveFoodWeight(FoodWeight Weight)
         {
-            FoodWeights.Remove(Weight);
+            Weight.Visible = false;
             Event NewEvent = new Event()
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 17),
@@ -178,7 +178,7 @@ namespace MrHrumsHomeEdition.Models
         }
         public void RemoveGranule(Granule granule)
         {
-            Granules.Remove(granule);
+            granule.Visible = false;
             Event NewEvent = new Event()
             {
                 TypeOfEvent = AppModels.EventsModel.TypesOfEvent.FirstOrDefault(t => t.Id == 20),

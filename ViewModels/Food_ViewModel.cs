@@ -117,13 +117,6 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Введите название!");
                     return;
                 }
-                if (!AppModels.FoodModel.CanCreateFoodName(LocalFoodName))
-                {
-                    MessageBox.Show(
-                        "Такое название уже существует!", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
                 AppModels.FoodModel.ChangeFoodName(SelectedFoodName, LocalFoodName);
                 (obj as Window).Close();
             });
@@ -198,13 +191,6 @@ namespace MrHrumsHomeEdition.ViewModels
                     MessageBox.Show("Некорректный вес!");
                     return;
                 }
-                if (!AppModels.FoodModel.CanCreateFoodWeight(LocalFoodWeight))
-                {
-                    MessageBox.Show(
-                        "Такой вес уже существует!", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
                 AppModels.FoodModel.ChangeFoodWeight(SelectedFoodWeight, LocalFoodWeight);
                 (obj as Window).Close();
             });
@@ -277,13 +263,6 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (string.IsNullOrEmpty(LocalGranule.Size))
                 {
                     MessageBox.Show("Введите название гранулы!");
-                    return;
-                }
-                if (!AppModels.FoodModel.CanCreateGranule(LocalGranule))
-                {
-                    MessageBox.Show(
-                        "Такая гранула уже существует!", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 AppModels.FoodModel.ChangeGranule(SelectedGranule, LocalGranule);
@@ -420,14 +399,6 @@ namespace MrHrumsHomeEdition.ViewModels
                 if (LocalFood.Price.Kennel < 0)
                 {
                     MessageBox.Show("Некорректная цена для питомника!");
-                    return;
-                }
-
-                if (!AppModels.FoodModel.CanCreateFood(LocalFood))
-                {
-                    MessageBox.Show(
-                        "Такой корм уже существует!", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
