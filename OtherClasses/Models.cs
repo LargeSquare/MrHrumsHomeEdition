@@ -8,10 +8,11 @@ namespace MrHrumsHomeEdition.OtherClasses
     static class Models
     {
         public static Events_Model EventsModel = new Events_Model();
-        public static Clients_Model ClientsModel= new Clients_Model();
-        public static Budget_Model BudgetModel= new Budget_Model();
-        public static Warehouse_Model WarehouseModel= new Warehouse_Model();
-        public static Food_Model FoodModel= new Food_Model();
-        public static Supplies_Model SuppliesModel= new Supplies_Model();
+        public static Clients_Model ClientsModel = new Clients_Model();
+        public static Budget_Model BudgetModel = new Budget_Model();
+        public static Warehouse_Model WarehouseModel = new Warehouse_Model();
+        public static Food_Model FoodModel = new Food_Model();
+        public static Supplies_Model SuppliesModel = new Supplies_Model();
+        public static Orders_Model OrdersModel = new Orders_Model();
     }
 }

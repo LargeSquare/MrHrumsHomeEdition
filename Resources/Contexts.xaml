@@ -9,4 +9,5 @@
     <ViewModels:Warehouse_ViewModel x:Key="Warehouse_ViewModel_Context"/>
     <ViewModels:Food_ViewModel x:Key="Food_ViewModel_Context"/>
     <ViewModels:Supplies_ViewModel x:Key="Supplies_ViewModel_Context"/>
+    <ViewModels:Orders_ViewModel x:Key="Orders_ViewModel_Context"/>
 </ResourceDictionary>

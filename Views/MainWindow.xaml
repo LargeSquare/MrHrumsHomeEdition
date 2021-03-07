@@ -39,6 +39,7 @@
             <TabItem
                 Header="{StaticResource Orders_TabControlHeaderString}">
                 <Frame
+                    Source="Order\Order_Page.xaml"
                     NavigationUIVisibility="Hidden"/>
             </TabItem>
 

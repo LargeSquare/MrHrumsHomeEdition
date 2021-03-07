@@ -14,16 +14,16 @@ namespace MrHrumsHomeEdition.Models
     [AddINotifyPropertyChangedInterface]
     class Events_Model
     {
-        public ObservableCollection<Event> Events { get; set; }
         public ObservableCollection<TypeOfEvent> TypesOfEvent { get; set; }
+        public ObservableCollection<Event> Events { get; set; }
 
         public Events_Model()
         {
-            DB.Events.Load();
             DB.TypeOfEvents.Load();
+            DB.Events.Load();
 
-            Events = DB.Events.Local;
             TypesOfEvent = DB.TypeOfEvents.Local;
+            Events = DB.Events.Local;
         }
 
 

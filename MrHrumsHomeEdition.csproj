@@ -114,8 +114,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Food_Model.cs" />
+    <Compile Include="Models\Orders_Model.cs" />
     <Compile Include="Models\Supplies_Model.cs" />
     <Compile Include="ViewModels\Food_ViewModel.cs" />
+    <Compile Include="ViewModels\Orders_ViewModel.cs" />
     <Compile Include="ViewModels\Supplies_ViewModel.cs" />
     <Compile Include="Views\Food\ChangeFood_Window.xaml.cs">
       <DependentUpon>ChangeFood_Window.xaml</DependentUpon>
@@ -143,6 +145,9 @@
     </Compile>
     <Compile Include="Views\Food\Granule\CreateGranule_Window.xaml.cs">
       <DependentUpon>CreateGranule_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\Order_Page.xaml.cs">
+      <DependentUpon>Order_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Supply\ChangePositionInSupply_Window.xaml.cs">
       <DependentUpon>ChangePositionInSupply_Window.xaml</DependentUpon>
@@ -306,6 +311,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Order\Order_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Supply\ChangePositionInSupply_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
