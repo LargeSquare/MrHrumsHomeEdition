@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using MrHrumsHomeEdition.Data.DataBaseModels;
 using System.Windows.Controls;
@@ -14,8 +13,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Supplies_ViewModel
+    class Supplies_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Supply> Supplies => AppModels.SuppliesModel.Supplies;
         public ObservableCollection<PositionInSupply> PositionInSupplies { get; set; }

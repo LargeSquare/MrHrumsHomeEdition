@@ -1,5 +1,4 @@
 ﻿using MrHrumsHomeEdition.Data;
-using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -8,11 +7,11 @@ using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    class Clients_Model
+    class Clients_Model : BasePropertyChanged
     {
         public ObservableCollection<Client> Clients { get; set; }
 

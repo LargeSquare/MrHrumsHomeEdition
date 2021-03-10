@@ -2,7 +2,6 @@
 using MrHrumsHomeEdition.OtherClasses;
 using MrHrumsHomeEdition.Views.Client;
 using MrHrumsHomeEdition.Views.Event;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
@@ -10,8 +9,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Clients_ViewModel
+    class Clients_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Client> Clients => AppModels.ClientsModel.Clients;
 

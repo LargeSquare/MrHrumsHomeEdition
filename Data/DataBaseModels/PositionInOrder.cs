@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using PropertyChanged;
 using System;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
@@ -8,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Data.DataBaseModels
 {
-    [AddINotifyPropertyChangedInterface]
-    public partial class PositionInOrder
+    public partial class PositionInOrder : BasePropertyChanged
     {
         [Key]
         public int Id { get; set; }

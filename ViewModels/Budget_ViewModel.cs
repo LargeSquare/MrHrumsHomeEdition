@@ -2,7 +2,6 @@
 using MrHrumsHomeEdition.OtherClasses;
 using MrHrumsHomeEdition.Views.Budget;
 using MrHrumsHomeEdition.Views.Event;
-using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -11,8 +10,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Budget_ViewModel
+    class Budget_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Budget> BudgetItems => AppModels.BudgetModel.BudgetItems;
         public ObservableCollection<BudgetState> BudgetStates => AppModels.BudgetModel.BudgetStates;

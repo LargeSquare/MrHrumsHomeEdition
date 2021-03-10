@@ -1,5 +1,4 @@
 ﻿using MrHrumsHomeEdition.Data;
-using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -8,11 +7,11 @@ using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    class Budget_Model
+    class Budget_Model : BasePropertyChanged
     {
         public ObservableCollection<Budget> BudgetItems { get; set; }
         public ObservableCollection<BudgetState> BudgetStates { get; set; }

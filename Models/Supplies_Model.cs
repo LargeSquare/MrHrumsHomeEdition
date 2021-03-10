@@ -1,5 +1,4 @@
 ﻿using MrHrumsHomeEdition.Data;
-using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,11 +8,11 @@ using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    class Supplies_Model
+    class Supplies_Model : BasePropertyChanged
     {
         public ObservableCollection<PositionInSupply> PositionInSupplies { get; set; }
         public ObservableCollection<Supply> Supplies { get; set; }

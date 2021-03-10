@@ -1,6 +1,5 @@
 ﻿using MrHrumsHomeEdition.Data;
 using MrHrumsHomeEdition.OtherClasses;
-using PropertyChanged;
 using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -12,8 +11,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    class Food_Model
+    class Food_Model : BasePropertyChanged
     {
         public ObservableCollection<FoodName> FoodNames { get; set; }
         public ObservableCollection<FoodWeight> FoodWeights { get; set; }

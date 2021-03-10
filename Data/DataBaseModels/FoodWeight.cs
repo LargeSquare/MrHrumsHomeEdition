@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Data.DataBaseModels
 {
-    [AddINotifyPropertyChangedInterface]
-    public partial class FoodWeight
+    public partial class FoodWeight : BasePropertyChanged
     {
         public FoodWeight()
         {

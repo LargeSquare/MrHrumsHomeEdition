@@ -116,6 +116,7 @@
     <Compile Include="Models\Food_Model.cs" />
     <Compile Include="Models\Orders_Model.cs" />
     <Compile Include="Models\Supplies_Model.cs" />
+    <Compile Include="OtherClasses\BasePropertyChanged.cs" />
     <Compile Include="ViewModels\Food_ViewModel.cs" />
     <Compile Include="ViewModels\Orders_ViewModel.cs" />
     <Compile Include="ViewModels\Supplies_ViewModel.cs" />

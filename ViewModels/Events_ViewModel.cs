@@ -1,7 +1,6 @@
 ﻿using MrHrumsHomeEdition.Data;
 using MrHrumsHomeEdition.OtherClasses;
 using MrHrumsHomeEdition.Views.Event;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
@@ -9,8 +8,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Events_ViewModel
+    class Events_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Event> Events => AppModels.EventsModel.Events;
         public ObservableCollection<TypeOfEvent> TypesOfEvent => AppModels.EventsModel.TypesOfEvent;

@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using PropertyChanged;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Data.DataBaseModels
 {
-    [AddINotifyPropertyChangedInterface]
-    public partial class Bag
+    public partial class Bag : BasePropertyChanged
     {
         public Bag()
         {

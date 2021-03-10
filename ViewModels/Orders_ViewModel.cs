@@ -2,7 +2,6 @@
 using MrHrumsHomeEdition.OtherClasses;
 using MrHrumsHomeEdition.Views.Client;
 using MrHrumsHomeEdition.Views.Event;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
@@ -15,8 +14,7 @@ using System.ComponentModel;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Orders_ViewModel
+    class Orders_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Order> Orders => AppModels.OrdersModel.Orders;
         public ObservableCollection<PositionInOrder> PositionInOrders { get; set; }

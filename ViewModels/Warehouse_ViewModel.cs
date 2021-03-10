@@ -3,7 +3,6 @@ using MrHrumsHomeEdition.OtherClasses;
 using MrHrumsHomeEdition.Views.Client;
 using MrHrumsHomeEdition.Views.Event;
 using MrHrumsHomeEdition.Views.Warehouse;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -12,8 +11,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Warehouse_ViewModel
+    class Warehouse_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<Warehouse> WarehouseItems => AppModels.WarehouseModel.WarehouseItems;
 

@@ -6,7 +6,6 @@ using MrHrumsHomeEdition.Views.Food;
 using MrHrumsHomeEdition.Views.Food.FoodName;
 using MrHrumsHomeEdition.Views.Food.FoodWeight;
 using MrHrumsHomeEdition.Views.Food.Granule;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows;
 using MrHrumsHomeEdition.Data.DataBaseModels;
@@ -14,8 +13,7 @@ using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 
 namespace MrHrumsHomeEdition.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    class Food_ViewModel
+    class Food_ViewModel : BasePropertyChanged
     {
         public ObservableCollection<FoodName> FoodNames => AppModels.FoodModel.FoodNames;
         public ObservableCollection<FoodWeight> FoodWeights => AppModels.FoodModel.FoodWeights;

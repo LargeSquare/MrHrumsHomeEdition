@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PropertyChanged;
 using MrHrumsHomeEdition.Data.DataBaseModels;
 using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Windows;
+using MrHrumsHomeEdition.OtherClasses;
 
 namespace MrHrumsHomeEdition.Models
 {
-    [AddINotifyPropertyChangedInterface]
-    class Orders_Model
+    class Orders_Model : BasePropertyChanged
     {
         public ObservableCollection<Order> Orders { get; set; }
         public ObservableCollection<PositionInOrder> PositionInOrders { get; set; }
