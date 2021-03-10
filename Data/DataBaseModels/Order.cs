@@ -45,5 +45,20 @@ namespace MrHrumsHomeEdition.Data.DataBaseModels
         public virtual Client Client { get; set; }
         public virtual TypeOfDelivery TypeOfDelivery { get; set; }
         public virtual ICollection<PositionInOrder> PositionInOrder { get; set; }
+
+        public void OnPositionInOrderChanged()
+        {
+            RecalcAmount();
+        }
+
+        public void RecalcAmount()
+        {
+            decimal sum = 0;
+            foreach(PositionInOrder p in PositionInOrder)
+            {
+                sum += p.Amount;
+            }
+            Amount = sum;
+        }
     }
 }

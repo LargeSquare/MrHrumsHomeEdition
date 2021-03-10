@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using PropertyChanged;
 using System;
+using AppModels = MrHrumsHomeEdition.OtherClasses.Models;
+using static MrHrumsHomeEdition.OtherClasses.DataBaseConnection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MrHrumsHomeEdition.Data.DataBaseModels
 {
@@ -51,5 +54,38 @@ namespace MrHrumsHomeEdition.Data.DataBaseModels
         public virtual Food Food { get; set; }
         public virtual Order Order { get; set; }
         public virtual TypeOfSale TypeOfSale { get; set; }
+
+        public void OnCountOfBagsChanged()
+        {
+            RecalcAmount();
+        }
+        public void OnCountOfKGChanged()
+        {
+            RecalcAmount();
+        }
+        public void OnDiscountChanged()
+        {
+            RecalcAmount();
+        }
+        public void OnTypeOfSaleChanged()
+        {
+            RecalcAmount();
+        }
+        public void OnIndividualPriceChanged()
+        {
+            RecalcAmount();
+        }
+
+        private void RecalcAmount()
+        {
+            if(TypeOfSale == null)
+            {
+                return;
+            }
+            decimal amountOfPosition = (AppModels.OrdersModel.ReturnPriceByTypeOfSale(this) * CountOfBags) +
+                                    (AppModels.OrdersModel.ReturnPriceByTypeOfSale(this) / Convert.ToDecimal(Food.FoodWeight.Weight) * CountOfKG);
+            decimal amountWithDiscount = amountOfPosition - (amountOfPosition / 100 * this.Discount);
+            Amount = amountWithDiscount;
+        }
     }
 }

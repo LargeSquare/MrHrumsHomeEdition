@@ -61,6 +61,7 @@ namespace MrHrumsHomeEdition.ViewModels
 
         public DelegateCommand OpenWindowOfCreateFood { get; set; }
         public DelegateCommand OpenWindowOfChangeFood { get; set; }
+        public DelegateCommand OpenWindowOfDuplicateFood { get; set; }
         public DelegateCommand CreateFood { get; set; }
         public DelegateCommand ChangeFood { get; set; }
         public DelegateCommand RemoveFood { get; set; }
@@ -324,6 +325,32 @@ namespace MrHrumsHomeEdition.ViewModels
                     Visible = true                
                 };
                 ChangeFood_Window window = new ChangeFood_Window();
+                window.ShowDialog();
+            });
+
+            OpenWindowOfDuplicateFood = new DelegateCommand(obj =>
+            {
+                if (SelectedFood == null)
+                {
+                    MessageBox.Show("Выберите позицию!");
+                    return;
+                }
+
+                LocalFood = new Food() {
+                    FoodName = SelectedFood.FoodName,
+                    FoodWeight = SelectedFood.FoodWeight,
+                    Granule = SelectedFood.Granule,
+                    Visible = true
+                };
+                LocalPrice = new Price() {
+                    Purchase = SelectedFood.Price.Purchase,
+                    Retail = SelectedFood.Price.Retail,
+                    Kennel = SelectedFood.Price.Kennel,
+                    Visible = true
+                };
+                LocalFood.Price = LocalPrice;
+
+                CreateFood_Window window = new CreateFood_Window();
                 window.ShowDialog();
             });
 

@@ -59,12 +59,11 @@ namespace MrHrumsHomeEdition.Models
             decimal sum = 0;
             foreach(PositionInOrder p in order.PositionInOrder)
             {
-                sum += ReturnPriceByTypeOfSale(p);
+                //sum += RecalcAmountOfPosition(p);
             }
             order.Amount = sum;
             DB.SaveChanges();
         }
-
 
 
         public void CreateOrder(Order order)
@@ -88,7 +87,7 @@ namespace MrHrumsHomeEdition.Models
 
             foreach (PositionInOrder p in order.PositionInOrder)
             {
-                if (p.Paid || p.CarriedOut)
+                if (p.Paid || p.CarriedOut || order.Paid)
                 {
                     result = false;
                 }
@@ -117,7 +116,7 @@ namespace MrHrumsHomeEdition.Models
         {
             foreach (PositionInOrder p in positions)
             {
-                if (p.CountOfBags != 0)
+                if (p.CountOfBags != 0 || p.CountOfKG != 0)
                 {
                     CreatePosition(p);
                 }

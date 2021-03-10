@@ -33,6 +33,10 @@
     <clr:String x:Key="CreatePositionsInSupplyWindow_NameOfWindow">Добавление позиций в поставку</clr:String>
     <clr:String x:Key="ChangePositionsInSupplyWindow_NameOfWindow">Редактирование позиции в поставке</clr:String>
 
+    <clr:String x:Key="CreateOrderWindow_NameOfWindow">Создание заказа</clr:String>
+    <clr:String x:Key="CreatePositionsInOrderWindow_NameOfWindow">Добавление позиций в заказ</clr:String>
+    <clr:String x:Key="ChangePositionsInOrderWindow_NameOfWindow">Редактирование позиции в заказе</clr:String>
+
 
     <!-- TabControl headers -->
     <clr:String x:Key="Clients_TabControlHeaderString">Клиенты</clr:String>
@@ -61,6 +65,7 @@
     <clr:String x:Key="Apply_ButtonContent">Применить</clr:String>
     <clr:String x:Key="Cancel_ButtonContent">Аннулировать</clr:String>
     <clr:String x:Key="Return_ButtonContent">Вернуть</clr:String>
+    <clr:String x:Key="Duplicate_ButtonContent">Дублировать</clr:String>
 
     <clr:String x:Key="ClearHistory_ButtonContent">Очистить историю</clr:String>
     

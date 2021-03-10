@@ -27,6 +27,9 @@
                         Content="{StaticResource Change_ButtonContent}"
                         Command="{Binding OpenWindowOfChangeFood}"/>
                     <Button
+                        Content="{StaticResource Duplicate_ButtonContent}"
+                        Command="{Binding OpenWindowOfDuplicateFood}"/>
+                    <Button
                         Content="{StaticResource Remove_ButtonContent}"
                         Command="{Binding RemoveFood}"/>
                 </StackPanel>
@@ -230,6 +233,21 @@
                         ElementStyle="{StaticResource DataGridCellTextWrapping}"
                         Binding="{Binding Price.Kennel}"/>
                 </DataGrid.Columns>
+
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="BorderBrush" Value="Orange"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+
+                            <DataTrigger Binding="{Binding Visible}" Value="False">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
             </DataGrid>
         </TabItem>
     </TabControl>
