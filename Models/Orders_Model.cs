@@ -53,16 +53,6 @@ namespace MrHrumsHomeEdition.Models
             }
         }
 
-        public void RecalcAmountOfOrder(Order order)
-        {
-            decimal sum = 0;
-            foreach(PositionInOrder p in order.PositionInOrder)
-            {
-                //sum += RecalcAmountOfPosition(p);
-            }
-            order.Amount = sum;
-            DB.SaveChanges();
-        }
 
 
         public void CreateOrder(Order order)

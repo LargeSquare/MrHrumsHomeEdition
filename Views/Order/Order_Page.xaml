@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <GridSplitter Grid.Column="2" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+        <GridSplitter Grid.Column="2" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
 
         <StackPanel>
             <GroupBox Header="{StaticResource Orders_String}">
@@ -139,6 +139,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    
                 </DataGrid.Columns>
 
                 <i:Interaction.Triggers>
@@ -240,6 +241,19 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Возвращено">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Returned, UpdateSourceTrigger=PropertyChanged}"
+                                          IsEnabled="False"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn
+                        Header="Возвращено КГ"
+                        Binding="{Binding ReturnedKG}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

@@ -88,7 +88,7 @@ namespace MrHrumsHomeEdition.ViewModels
                     NewDataForPositions.Add(NewPosition);
                 }
 
-
+                SelectedTypeOfSale = null;
                 SelectedTypeOfSale = TypeOfSales.FirstOrDefault();
                 NewDataForOrder.TypeOfDelivery = TypeOfDeliveries.FirstOrDefault();
                 NewDataForOrder.CostOfDelivery = 300;
