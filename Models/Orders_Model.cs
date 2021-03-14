@@ -34,24 +34,7 @@ namespace MrHrumsHomeEdition.Models
             TypeOfDeliveries = DB.TypeOfDeliveries.Local;
         }
 
-        public decimal ReturnPriceByTypeOfSale(PositionInOrder position)
-        {
-            switch (position.TypeOfSale.Type)
-            {
-                case "Розница":
-                    return position.Food.Price.Retail;
-                case "Питомник":
-                    return position.Food.Price.Kennel;
-                case "Индивидуально":
-                    return position.IndividualPrice;
-                case "Для себя":
-                    return position.Food.Price.ForSelf;
-                default:
-                    MessageBox.Show("Указанный тип продажи отсутствует в прайсе! Используется значение по умолчанию - 0", "Ошибка",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    return 0;
-            }
-        }
+        
 
 
 
@@ -76,7 +59,7 @@ namespace MrHrumsHomeEdition.Models
 
             foreach (PositionInOrder p in order.PositionInOrder)
             {
-                if (p.Paid || p.CarriedOut || order.Paid)
+                if (p.Paid || p.CarriedOut || order.DeliveryPaid)
                 {
                     result = false;
                 }

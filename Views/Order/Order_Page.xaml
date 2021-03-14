@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MrHrumsHomeEdition.Views.Order"
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Order_Page"
       DataContext="{StaticResource Orders_ViewModel_Context}">
@@ -36,7 +37,8 @@
                     <Button Content="{StaticResource Create_ButtonContent}"
                             Command="{Binding OpenWindowOfCreatePositions}"/>
                     <Button Content="{StaticResource Return_ButtonContent}"
-                            Command="{Binding OpenWindowOfReturnPosition}"/>
+                            Command="{Binding OpenWindowOfReturnPosition}"
+                            IsEnabled="{c:Binding SelectedPositionInOrder.CarriedOut and SelectedPositionInOrder.Paid}"/>
                     <Button Content="{StaticResource Cancel_ButtonContent}"
                             Command="{Binding ClearPosition}"/>
                 </StackPanel>
@@ -213,7 +215,8 @@
                     <DataGridTemplateColumn Header="Оплачено">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding Paid, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox IsChecked="{Binding Paid, UpdateSourceTrigger=PropertyChanged}"
+                                          IsEnabled="{c:Binding !Returned}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding DataContext.PositionPaidChanged,
@@ -229,7 +232,8 @@
                     <DataGridTemplateColumn Header="Доставлено">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding CarriedOut, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox IsChecked="{Binding CarriedOut, UpdateSourceTrigger=PropertyChanged}"
+                                          IsEnabled="{c:Binding !Returned}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding DataContext.PositionCarriedOutChanged,
